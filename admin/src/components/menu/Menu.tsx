@@ -10,7 +10,7 @@ const Menu = function () {
                 return (
                     <div className="item" key={item?.id}>
                         <span className="title">
-                            PRINCIPALE
+                            {item?.title}
                         </span>
                         {item?.listItems.map(function(listItem){
                             return (

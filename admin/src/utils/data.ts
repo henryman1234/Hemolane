@@ -8,7 +8,7 @@ export const menu = [
             {
                 id: 1,
                 url: "/",
-                title: "Homepage",
+                title: "Acceuil",
                 icon: "/images/home.svg"
             },
             {
@@ -22,25 +22,79 @@ export const menu = [
     },
     {
         id: 2,
-        title: "lists",
+        title: "produits",
         listItems: [
             {
                 id: 1,
                 url: "/",
-                title: "Users",
+                title: "Hoptitaux",
                 icon: "/images/user.svg"
             },
             {
                 id: 2,
                 url: "/",
-                title: "Products",
+                title: "Banques de sangs",
                 icon: "/images/product.svg"
             },
             {
                 id: 3,
                 url: "/",
-                title: "Orders",
+                title: "Commandes",
                 icon: "/images/order.svg"
+            },
+            {
+                id: 1,
+                url: "/",
+                title: "Utilisateurs",
+                icon: "/images/user.svg"
+            },
+        ]
+    },
+    {
+        id: 3,
+        title: "generals",
+        listItems: [
+            {
+                id: 1,
+                url: "/",
+                title: "Elements",
+                icon: "/images/element.svg"
+            },
+            {
+                id: 2,
+                title: "Notes",
+                icon: "/images/note.svg",
+                url: "/"
+            },
+            {
+                id: 3,
+                title: "Formulaires",
+                icon: "/images/form.svg",
+                url: "/"
+            }
+        ]
+    },
+    {
+        id: 4,
+        title: "Maintenance",
+        listItems: [
+            {
+                id: 1,
+                title: "Paramètres",
+                icon: "/images/setting.svg",
+                url: "/"
+            }
+        ]
+    },
+    {
+        id: 5,
+        title: "analytics",
+        listItems: [
+            {
+                id: 1,
+                title: "Graphiques",
+                icon: "/images/chart.svg",
+                url: "/"
             }
         ]
     }
