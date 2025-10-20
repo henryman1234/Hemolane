@@ -1,0 +1,22 @@
+@use "../../sass//variables.scss";
+
+.footer {
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+
+    span {
+        &:first-child {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        &:last-child {
+            font-size: 14px;
+            font-weight: 500;
+        }
+    }
+
+}

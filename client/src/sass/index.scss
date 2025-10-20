@@ -1,0 +1,39 @@
+@import "./reset.scss";
+@import "./responsive.scss";
+@import "./variables.scss";
+
+
+:root {
+    --first-blue: rgb(1, 27, 43);
+    --first-yellow: #ffae00dc ;
+    --gray-color-first: rgb(218, 217, 217);
+    --gray-color-second: rgb(248, 245, 245);
+}
+
+@font-face {
+    src: url("../../public/fonts/Inter-Medium.ttf");
+    font-weight: 500;
+    font-family: "Inter", sans-serif;
+    font-display: swap;
+}
+
+@font-face {
+    src: url("../../public/fonts/PlayfairDisplay-Black.ttf");
+    font-weight: 500;
+    font-family: "Playfair", sans-serif;
+    font-display: swap;
+}
+
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    font-family: Inter, sans-serif;
+    width: 100vw;
+    background-color: #e6e6ff;
+
+}
+
