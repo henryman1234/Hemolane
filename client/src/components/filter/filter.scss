@@ -1,0 +1,59 @@
+@use "../../sass/variables.scss";
+@use "../../sass/responsive.scss";
+
+.filter {
+
+    h1 {
+        font-size: 20px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        .formItem {
+            display: flex;
+            gap: 5px;
+            flex-direction: column;
+    
+            input {
+                width: 70%;
+                padding: 5px;
+                border: none;
+                border-radius: 5px;
+                outline: none;
+                border: 1px solid variables.$light-green;
+                font-size: 16px;
+
+                &:focus-visible {
+                    outline: 1px solid variables.$deep-green;
+                    transition: 0.3s ease all;
+                }
+
+                &::placeholder {
+                    font-family: inherit;
+                    font-size: 14px;
+                }
+            }
+
+        }
+
+        .submitButton {
+            border: none;
+            background-color:  variables.$red;
+            padding: 5px 10px;
+            gap: 5px;
+            border-radius: 5px;
+
+
+            cursor: pointer;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 500;
+            width: fit-content;
+        }
+    }
+
+
+}

@@ -1,0 +1,104 @@
+@use "../../sass/variables.scss";
+@use "../../sass/responsive.scss";
+
+.bloodCard {
+    -webkit-box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
+    box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
+
+    .bloodCardContainer {
+        width: 100%;
+        height:fit-content;
+        background-color: #fff;
+        display: flex;
+        // gap: 10px;
+        justify-content: space-between !important;
+        border-radius: 10px;
+        padding: 10px;
+
+        img {
+            width: 16px;
+            height: 16px;
+        }
+
+        .left {
+
+            .name {
+                font-size: 20px;
+                font-weight: 700;
+                font-family: Nexa;
+                color: variables.$blue;
+            }
+            .address {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+    
+                span {
+                    color: gray;
+                    font-size: 14px;
+                    font-weight: 500;
+                }
+            }
+    
+            .type {
+                font-size: 15px;
+                font-weight: 500;
+                background-color: variables.$red;
+                width: max-content;
+                color: #fff;
+                padding: 5px;
+                border-radius: 5px;
+    
+            }
+
+            .features  {
+                display: flex;
+                gap: 20px;
+                align-items: center;
+
+                .feature {
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    padding: 5px;
+                    background-color: lightgray;
+                    border-radius: 5px;
+                    font-size: 14px;
+                    font-weight: 500;
+                    justify-content: center;
+                    color: gray;
+
+                    .icon {
+                        // color: variables.$deep-green;
+                    }
+                }
+            }
+
+        }
+
+        .right {
+            height: 100% !important;
+            // background-color: red;
+
+            .iconsBox {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                gap: 20px;
+                justify-content: space-between;
+
+                .iconBox {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    border: 1px solid #999;
+                    padding: 5px;
+                    border-radius: 5px;
+                }
+            }
+        }
+
+    }
+}

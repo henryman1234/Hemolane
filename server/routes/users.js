@@ -12,9 +12,9 @@ router.get("/checkadmin", async function (req, res, next) {
     res.send("Bonjour admin, vous etes connecté")
 })
 
-router.get("/", verifyAdmin, getUsers)
-router.get("/:id", verifyUser, getUser )
-router.put("/:id", verifyUser, updateUser)
-router.delete("/:id", verifyUser, deleteUser)
+router.get("/", getUsers)
+router.get("/:id",  getUser )
+router.put("/:id",  updateUser)
+router.delete("/:id",  deleteUser)
 
 export default router

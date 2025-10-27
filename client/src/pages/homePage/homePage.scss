@@ -1,0 +1,156 @@
+@use "../../sass/variables.scss";
+@use "../../sass/responsive.scss";
+
+.homePage {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+
+    @media screen and (max-width: 885px) {
+        height: 100dvh;
+        overflow: hidden;
+    }
+
+    .homeContainer {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1024px;
+        padding: 0 16px;
+        height: 100%;
+        overflow-y: auto;
+
+
+        .textContainer {
+            flex: 3;
+            height: 100%;
+
+            @media screen and (max-width: 885px) {
+                flex: 1;
+            }
+
+
+
+            .wrapper {
+                padding-right: 100px;
+                display: flex;
+                flex-direction: column;
+                gap: 25px;
+                height: 100%;
+
+                @media screen and (max-width: 885px) {
+                    padding: 0;
+                }
+    
+
+                .bigTitle {
+                    font-size: 45px;
+                    font-weight: bold;
+                    color: variables.$blue;
+                    line-height: 1.1;
+                    font-family: "Nexa", sans-serif;
+
+                    @include responsive.sm {
+                        font-size: 35px;
+                    }
+                }
+
+                p {
+                    font-weight: 300;
+                    font-size:  18px;
+
+                    @include responsive.sm {
+                        font-size: 16px;
+                    }
+                }
+                
+                .formData {
+                    display: flex;
+                    gap: 10px;
+
+                    @media screen and (max-width: 885px) {
+                        flex-direction: column;
+                    }
+
+                    input {
+                        padding: 10px;
+                        flex: 1;
+                        border: none;
+                        font-size: 18px;
+                        font-weight: 500;
+                        outline: none;
+                        border: 2px solid variables.$deep-green;
+
+                        &::placeholder {
+                            font-size: 16px;
+                            font-family: Inter, sans-serif;
+                        }
+
+                    }
+
+                    button {
+                        background-color: variables.$red;
+                        color: #fff;
+                        font-weight: 500;
+                        cursor: pointer;
+                        padding: 10px;
+                        border: none;
+                        outline: none;
+                        font-size: 16px;
+                        font-weight: 500;
+                    }
+                }
+
+                .boxes {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .box {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0;
+                        h1 {
+                            font-size: 30px;
+                            color: variables.$blue;
+                            font-weight: bold;
+
+                            @include responsive.sm {
+                                font-size: 25px;
+                            }
+                        }
+
+                        h2 {
+                            font-size: 16px;
+                            font-weight: normal;
+                            max-width: 100px;
+
+                            @include responsive.sm {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .imgContainer {
+            flex: 2;
+            background-color: variables.$light-green;
+            position: relative;
+
+            @media screen and (max-width: 885px) {
+                display: none;
+            }
+
+
+            img {
+                width: 115%;
+                position: absolute;
+                right: 0;
+            }
+        }
+    }
+}

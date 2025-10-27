@@ -9,8 +9,13 @@ const BloodBankSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    image: {
+    status: {
         type: String,
+        enum: ["disponible", "non-disponible"],
+        default: "disponible"
+    },
+    image: {
+        type: [String],
     },
     type: {
         type: String,

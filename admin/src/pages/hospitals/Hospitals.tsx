@@ -3,8 +3,8 @@ import "./hospitals.scss";
 
 const Hospitals = function () {
     return (
-        <div className="bloodBanks">
-            les hopitaux
+        <div className="hospitals">
+            Hospitaux
         </div>
     )
 }

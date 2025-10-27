@@ -14,8 +14,8 @@ const HospitalSchema = new Schema({
         type: [String],
         default: []
     },
-    lng: {type: String},
-    lat: {type: String},
+    lng: {type: Number},
+    lat: {type: Number},
 
     address: {
         type: String,

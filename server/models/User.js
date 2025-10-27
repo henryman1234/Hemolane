@@ -14,6 +14,10 @@ const UserSchema = new mongoose.Schema({
         type: String,
         default: ""
     },
+    status: {
+        type: String,
+        default: "active"
+    },
     password: {
         type: String,
         required: true,

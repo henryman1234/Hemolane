@@ -9,23 +9,50 @@ import morgan from "morgan"
 import authRoute from "./routes/auth.js"
 import usersRoute from "./routes/users.js";
 import hospitalsRoute from "./routes/hospitals.js";
-import BloodBanksRoute from "./routes/bloodBanks.js";
+import bloodBanksRoute from "./routes/bloodBanks.js";
+import requestsRoute from "./routes/requests.js"
 
 // Initialise express
 const app = express()
 
 
-// Middleware
-app.use(cors())
+// Middlewares
+
+/**
+ * That's the cors's configuration to avoid unknown origins
+ */
+const allowedOrigins = [
+    "http://localhost:5173",
+    "http://localhost:5174"
+]
+const corsOptions = {
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true)
+        } else {
+            callback(new Error("Origine non-authorisé", false))
+        }
+    },
+    methods: "GET, PUT, DELETE, PATCH, POST",
+    optionSuccessStatus: 204,
+    credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"]
+}
+
+
+app.use(cors(corsOptions))
+
+
 app.use(cookieParser())
 app.use(morgan("dev"))
 app.use(express.json())
 
+// Routes for the API
 app.use("/api/users", usersRoute)
 app.use("/api/auth", authRoute)
-app.use("/api/bloodBanks", BloodBanksRoute)
+app.use("/api/bloodBanks", bloodBanksRoute)
 app.use("/api/hospitals", hospitalsRoute)
-
+app.use("/api/requests", requestsRoute)
 
 
 // HandeError

@@ -27,7 +27,7 @@ export const menu = [
             {
                 id: 1,
                 url: "/",
-                title: "Hoptitaux",
+                title: "Hopitaux",
                 icon: "/images/user.svg"
             },
             {
@@ -43,7 +43,7 @@ export const menu = [
                 icon: "/images/order.svg"
             },
             {
-                id: 1,
+                id: 4,
                 url: "/",
                 title: "Utilisateurs",
                 icon: "/images/user.svg"
