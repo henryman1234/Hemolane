@@ -9,6 +9,8 @@ import {
 import Layout from "./pages/layout/Layout";
 import HomePage from "./pages/homePage/HomePage";
 import ListPage from "./pages/listPage/ListPage";
+import SinglePage from "./components/singlePage/SinglePage";
+import Profile from "./pages/profile/Profile";
 
 function App () {
 
@@ -24,8 +26,16 @@ function App () {
         },
         {
           path: "list",
-          element: <ListPage/>
+          element: <ListPage/>,
         },
+        {
+          path: ":id",
+          element: <SinglePage/>
+        },
+        {
+          path: "profile",
+          element: <Profile/>
+        }
         
       ]
     }

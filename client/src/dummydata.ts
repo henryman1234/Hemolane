@@ -114,13 +114,13 @@ export const bloodBankList = [
 
 export const singlePostData = {
   id: 1,
-  title: "Beautiful Apartment",
+  name: "Beautiful Apartment",
   price: 1200,
   images: [
-    "https://images.pexels.com/photos/1918291/pexels-photo-1918291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    "https://images.pexels.com/photos/1428348/pexels-photo-1428348.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    "https://images.pexels.com/photos/2062426/pexels-photo-2062426.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    "https://images.pexels.com/photos/2467285/pexels-photo-2467285.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "/images/4.jpeg",
+     "/images/3.jpeg",
+     "/images/2.jpeg",
+     "/images/6.jpeg",
   ],
   bedRooms: 2,
   bathroom: 1,

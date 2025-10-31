@@ -30,7 +30,7 @@ const corsOptions = {
         if (!origin || allowedOrigins.includes(origin)) {
             callback(null, true)
         } else {
-            callback(new Error("Origine non-authorisé", false))
+            callback(new Error("Origine non-authorisé"), false)
         }
     },
     methods: "GET, PUT, DELETE, PATCH, POST",

@@ -22,10 +22,9 @@ interface ItemType  {
     
 }
 
-
-const Pin = function ({item}) {
+const Pin = function ({item}: ItemType) {
     return (
-        <Marker position={[item.hospital.lat, item.hospital.lng]}>
+        <Marker position={[item.hospital.lat, item.hospital?.lng]}>
             <Popup>
                 <div className="popupContainer">
                     <img src={item.image[0]} alt="" />

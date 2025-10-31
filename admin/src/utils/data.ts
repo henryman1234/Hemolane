@@ -26,25 +26,25 @@ export const menu = [
         listItems: [
             {
                 id: 1,
-                url: "/",
+                url: "/hospitals",
                 title: "Hopitaux",
                 icon: "/images/user.svg"
             },
             {
                 id: 2,
-                url: "/",
+                url: "/bloodBanks",
                 title: "Banques de sangs",
                 icon: "/images/product.svg"
             },
             {
                 id: 3,
-                url: "/",
+                url: "/orders",
                 title: "Commandes",
                 icon: "/images/order.svg"
             },
             {
                 id: 4,
-                url: "/",
+                url: "/users",
                 title: "Utilisateurs",
                 icon: "/images/user.svg"
             },

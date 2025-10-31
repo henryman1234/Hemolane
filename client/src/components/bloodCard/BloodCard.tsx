@@ -31,7 +31,7 @@ const BloodCard = function ({item}: ItemType) {
 
                 <div className="left">
                     <h2 className="name">
-                        <Link to={`/list/${item?.id}`}>{item?.name}</Link>
+                        <Link to={`/${item?.id}`}>{item?.name}</Link>
                     </h2>
                     <p className="address">
                         <img src="/images/pin.png" alt="" />

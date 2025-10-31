@@ -11,6 +11,7 @@ import Users from "./pages/users/Users"
 import Login from "./pages/login/Login"
 import Register from "./pages/register/Register"
 import Layout from "./pages/layout/Layout"
+import Orders from "./pages/orders/Orders"
 
 
 function App () {
@@ -43,6 +44,10 @@ function App () {
         {
           path: "register",
           element: <Register/>
+        },
+        {
+          path: "orders",
+          element: <Orders/>
         }
       ]
     },
