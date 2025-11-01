@@ -1,8 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M10 11V17" stroke="crimson" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M14 11V17" stroke="crimson" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M4 7H20" stroke="crimson" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M6 7H12H18V18C18 19.6569 16.6569 21 15 21H9C7.34315 21 6 19.6569 6 18V7Z" stroke="crimson" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stroke="crimson" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+<svg fill="#FA5252" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 72 72" width="64px" height="64px"><path d="M 33 13 C 31.895 13 31 13.895 31 15 L 31 16 L 18 16 C 15.791 16 14 17.791 14 20 C 14 21.973645 15.432361 23.602634 17.3125 23.929688 L 19.707031 52.664062 C 20.050031 56.777062 23.553641 60 27.681641 60 L 46.318359 60 C 50.446359 60 53.949969 56.778062 54.292969 52.664062 L 56.6875 23.929688 C 58.567639 23.602634 60 21.973645 60 20 C 60 17.791 58.209 16 56 16 L 43 16 L 43 15 C 43 13.895 42.105 13 41 13 L 33 13 z"/></svg>

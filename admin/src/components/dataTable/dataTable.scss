@@ -1,2 +1,35 @@
 
+.MuiDataGrid-toolbar {
+    flex-direction: row-reverse;
+    width: 100%;
+    position: relative;
+
+    .MuiDataGrid-toolbarQuickFilter {
+        position: absolute;
+        left: 0;
+    }
+
+
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    
+
+    .action {
+        width: auto;
+
+        img  {
+            width: 25px;
+            cursor: pointer;
+            object-fit: cover;
+            height: 25px;
+        }
+    }
+}
+
+
 

@@ -12,6 +12,7 @@ import Login from "./pages/login/Login"
 import Register from "./pages/register/Register"
 import Layout from "./pages/layout/Layout"
 import Orders from "./pages/orders/Orders"
+import SingleUser from "./components/singleUser/SingleUser"
 
 
 function App () {
@@ -48,6 +49,10 @@ function App () {
         {
           path: "orders",
           element: <Orders/>
+        },
+        {
+          path: "users/:id",
+          element: <SingleUser/>
         }
       ]
     },

@@ -1,59 +1,101 @@
-import * as React from 'react';
+import React, { useState } from "react"
 import { DataGrid } from '@mui/x-data-grid';
-import type { GridColDef } from '@mui/x-data-grid';
+import type { GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
 import Paper from '@mui/material/Paper';
+import "./dataTable.scss";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
-const columns: GridColDef[] = [
-  { field: 'id', headerName: 'ID', width: 70 },
-  { field: 'firstName', headerName: 'First name', width: 130 },
-  { field: 'lastName', headerName: 'Last name', width: 130 },
-  {
-    field: 'age',
-    headerName: 'Age',
-    type: 'number',
-    width: 90,
-  },
-  {
-    field: 'fullName',
-    headerName: 'Full name',
-    description: 'This column has a value getter and is not sortable.',
-    sortable: false,
-    width: 160,
-    valueGetter: (value, row) => `${row.firstName || ''} ${row.lastName || ''}`,
-  },
-];
+type DataTableTypes = {
+  rows: {
+    id: number
+    username: string ,
+    status: string,
+    email: string ,
+    avatarUrl: string | null
+  }[],
 
-const rows = [
-  { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
-  { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
-  { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
-  { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
-  { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
-  { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
-  { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-  { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-  { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
-];
+  type?: string,
 
-const paginationModel = { page: 0, pageSize: 5 };
+  columns: GridColDef[],
+}
 
-const DataTable = function  () {
+
+const DataTable = function  ({rows, columns, type}: DataTableTypes) {
+
+  const navigate = useNavigate()
+
+  const action: GridColDef = {
+
+      field: "actions",
+      headerName: "Actions",
+      editable: true,
+      width: 120,
+      renderCell: function (params: GridRenderCellParams) {
+        return (
+          <div className="actions">
+
+            <Link to={`/users/${params?.row._id}`} className="action">
+                <img className="icon" src="/images/eye.png" alt="" />
+            </Link>
+
+            <Link to={`/users/${params?.row?._id}`} className="action">
+                <img  className="icon" src="/images/delete.svg" alt="" />
+            </Link>
+
+            {type &&  <Link to={`/users/${params?.row?._id}`} className="action">
+                <img  className="icon" src="/images/delete.svg" alt="" />
+            </Link>}
+          
+
+          </div>
+        )
+      }
+  }
+
+
   return (
     <Paper  
       sx={{ 
-        height: 400,
-        width: '100%',
+        height: 500,
+        width: '99%',
        }}>
+
       <DataGrid
         rows={rows}
-        columns={columns}
-        initialState={{ pagination: { paginationModel } }}
-        pageSizeOptions={[8, 10]}
-        checkboxSelection
+        columns={[...columns, action]}
         sx={{ 
           border: 0, 
           padding: "20px"
         }}
+        initialState={{
+          pagination: {
+            paginationModel: {
+              page: 0,
+              pageSize: 5
+            }
+          }
+        }}
+        showToolbar
+        getRowId={function(row) {
+          return row._id
+        }}
+        slotProps={{
+          toolbar: {
+            showQuickFilter: true,
+            quickFilterProps: {
+              debounceMs: 500,
+            },
+          }
+        }}
+        disableColumnFilter
+        disableColumnSelector
+        pageSizeOptions={[8, 10]}
+        disableDensitySelector
+        checkboxSelection
+        disableRowSelectionOnClick
+        disableColumnSorting
+        disableColumnMenu
+      
       />
     </Paper>
   );
