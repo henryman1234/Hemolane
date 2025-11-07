@@ -10,6 +10,9 @@ const HospitalSchema = new Schema({
         required: true,  
         type: String
     },
+    avatarUrl: {
+        type: String,
+    },
     phone: {
         type: [String],
         default: []

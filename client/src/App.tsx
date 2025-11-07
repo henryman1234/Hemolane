@@ -11,6 +11,7 @@ import HomePage from "./pages/homePage/HomePage";
 import ListPage from "./pages/listPage/ListPage";
 import SinglePage from "./components/singlePage/SinglePage";
 import Profile from "./pages/profile/Profile";
+import ProfileUpdatePage from "./pages/profileUpdatePage/ProfileUpdatePage";
 
 function App () {
 
@@ -35,6 +36,10 @@ function App () {
         {
           path: "profile",
           element: <Profile/>
+        },
+        {
+          path: "profileUpdatePage/:id",
+          element: <ProfileUpdatePage/>
         }
         
       ]

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./users.scss";
 import DataTable from "../../components/dataTable/DataTable";
 import type { GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import {ToastContainer, toast} from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 
@@ -13,6 +13,9 @@ const Users = function () {
   const navigate = useNavigate
   const apiUrl = import.meta.env.VITE_API_URL
   const [users, setUsers] = useState([])
+
+  const location = useLocation()
+  const path = location.pathname
 
 
   useEffect(function(){
@@ -127,7 +130,7 @@ const Users = function () {
         <ToastContainer/>
       </div>
 
-      <DataTable columns={columns} rows={users}/>
+      <DataTable path={path} columns={columns} rows={users}/>
 
 
     </div>

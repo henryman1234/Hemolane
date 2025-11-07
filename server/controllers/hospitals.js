@@ -53,13 +53,26 @@ export const updateHospital = async function (req, res, next) {
     }
 }
 
-// A regarder
-export const deleteHospital = async function (req, res, next) {
+// Delete an hospital with his bloodBanks
+export const deleteHospitalAndBanks = async function (req, res, next) {
 
     const id = req.params.id
     try {
+
+        const hospital = await Hospital.findById(id)
+        if (!id) {
+            return next(createError(404, "Cette Hopital n'existe pas!"))
+        }
+        
+        // Supprimer toutes les banques de sang de ce hopital
+        const deletedBanks = await BloodBank.deleteMany({hospital: id})
+
         await Hospital.findByIdAndDelete(id)
-        res.status(200).json({message: "Effacé avec succès"})
+        
+        res.status(200).json({
+            message: "Hopital supprimé avec succès!",
+            deletedBanksCount: deletedBanks.deletedCount
+        })
     } catch (err) {
         next(err)
     }

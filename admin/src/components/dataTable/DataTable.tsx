@@ -3,7 +3,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import type { GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
 import Paper from '@mui/material/Paper';
 import "./dataTable.scss";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 
 type DataTableTypes = {
   rows: {
@@ -16,13 +16,13 @@ type DataTableTypes = {
 
   type?: string,
 
+  path: string
+
   columns: GridColDef[],
 }
 
+const DataTable = function  ({rows, columns, type, path}: DataTableTypes) {
 
-const DataTable = function  ({rows, columns, type}: DataTableTypes) {
-
-  const navigate = useNavigate()
 
   const action: GridColDef = {
 
@@ -34,15 +34,15 @@ const DataTable = function  ({rows, columns, type}: DataTableTypes) {
         return (
           <div className="actions">
 
-            <Link to={`/users/${params?.row._id}`} className="action">
+            <Link to={`${path}/${params?.row._id}`} className="action">
                 <img className="icon" src="/images/eye.png" alt="" />
             </Link>
 
-            <Link to={`/users/${params?.row?._id}`} className="action">
+            <Link to={`${path}/${params?.row?._id}`} className="action">
                 <img  className="icon" src="/images/delete.svg" alt="" />
             </Link>
 
-            {type &&  <Link to={`/users/${params?.row?._id}`} className="action">
+            {type &&  <Link to={`${path}/${params?.row?._id}`} className="action">
                 <img  className="icon" src="/images/delete.svg" alt="" />
             </Link>}
           

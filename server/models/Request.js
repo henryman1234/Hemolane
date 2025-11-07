@@ -17,8 +17,10 @@ const RequestSchema = new mongoose.Schema({
         ref: "bloodBank",
         required: true
     },
+
     message: {
         type: String,
+        required: true
     },
     status: {
         type: String,

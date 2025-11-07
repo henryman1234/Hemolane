@@ -16,7 +16,8 @@ const UserSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        default: "active"
+        default: "actif",
+        enum: ["actif", "inactif"]
     },
     password: {
         type: String,

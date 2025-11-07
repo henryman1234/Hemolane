@@ -13,6 +13,8 @@ import Register from "./pages/register/Register"
 import Layout from "./pages/layout/Layout"
 import Orders from "./pages/orders/Orders"
 import SingleUser from "./components/singleUser/SingleUser"
+import SingleHospital from "./components/singleHospital/SingleHospital"
+import SingleBloodBank from "./pages/singleBloodBank/SingleBloodBank"
 
 
 function App () {
@@ -53,6 +55,14 @@ function App () {
         {
           path: "users/:id",
           element: <SingleUser/>
+        },
+        {
+          path: "hospitals/:id",
+          element: <SingleHospital/>
+        },
+        {
+          path: "bloodBanks/:id",
+          element: <SingleBloodBank/>
         }
       ]
     },

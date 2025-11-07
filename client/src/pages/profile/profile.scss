@@ -14,15 +14,117 @@
         width: 100%;
 
         .person {
-            background-color: red;
             height: 100%;
             flex: 3;
+
+            .wrapper {
+                display: flex;
+                flex-direction: column;
+                padding-top: 20px;
+                height: 100%;
+                padding-right: 50px;
+
+                .avatar {
+                    display: flex;
+                    gap: 10px;
+                    flex-direction: column;
+                    position: relative;
+            
+
+                    .imgContainer {
+
+                        width: 100px;
+                        height: 100px;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            border-radius: 50%;
+                            aspect-ratio: 1/1;
+                        }
+                    }
+
+                    .avatarName {
+                        color: variables.$blue;
+                        font-weight: bold;
+                        font-size: 28px;
+                        text-size-adjust: 100%;
+                        text-transform: uppercase;
+                    }
+
+                    .avatarEmail {
+                        color: variables.$blue;
+                        font-weight: 500;
+                        font-size: 16px;
+                    }
+            
+                }
+
+                .personDetails {
+
+                    form {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+
+                        .formTitle {
+                            font-size: 30px;
+                            font-weight: 600;
+                            color: variables.$blue;
+                        }
+
+
+                        .formItem {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 5px;
+
+                            label {
+                                font-size: 16px;
+                                font-weight: 500;
+                            }
+
+                            input {
+                                border: 1px solid variables.$blue;
+                                transition: 0.2s ease;
+                                background: transparent;
+                                padding: 8px;
+                                outline-width: 0;
+                                outline: 0;
+                                font-size: 16px;
+                                border-radius: 2px;
+
+                                &:focus-visible {
+                                    outline: 3px solid variables.$yellow;
+                                    border: 1px solid  gray;
+                                    transition: 0.2s ease;
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         .orders {
-            background-color: blue;
             height: 100%;
             flex: 2;
+            height: 100%;
+
+            .ordersTitle {
+                font-size: 25px;
+                font-weight: bold;
+                color: variables.$blue;
+                margin-bottom: 10px;
+            }
+
+            .ordersList {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
         }
     }
 }

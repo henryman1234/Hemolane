@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import express from "express"
-import { createBloodBank, createHospital, deleteBloodBank, deleteHospital, getHospital, getHospitals, updateBloodBank, updateHospital } from "../controllers/hospitals.js";
+import { createBloodBank, createHospital, deleteBloodBank, deleteHospitalAndBanks, getHospital, getHospitals, updateBloodBank, updateHospital } from "../controllers/hospitals.js";
 
 const router = express.Router()
 
@@ -15,8 +15,8 @@ router.get("/:id", getHospital)
 // Update an Hospital
 router.put("/:id", updateHospital)
 
-// Delete An hospital
-router.delete("/:id", deleteHospital)
+// Delete An hospital with all his bloodBanks
+router.delete("/:id", deleteHospitalAndBanks)
 
 // Create an BloodBank for an Hospital
 router.post("/:id/bloodBank", createBloodBank)
