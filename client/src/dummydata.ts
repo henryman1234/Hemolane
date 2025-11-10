@@ -3,7 +3,7 @@ export const bloodBankList = [
   {
     id: 1,
     name: "Banque de sang AB+ disponible",
-    image: ["/images/3.jpeg", "/images/5.jpeg"],
+    image: ["/images/b-.png", "/images/ab-.jpg"],
     type: "AB+",
     status: "disponible",
     desc: "Banque de sang AB+ en parfaite état pour une transfusion immédiate",
@@ -117,10 +117,10 @@ export const singlePostData = {
   name: "Beautiful Apartment",
   price: 1200,
   images: [
-    "/images/4.jpeg",
-     "/images/3.jpeg",
-     "/images/2.jpeg",
-     "/images/6.jpeg",
+    "/images/ab-.jpg",
+     "/images/b-.png",
+     "/images/ab+.jpg",
+     "/images/o+.jpg",
   ],
   bedRooms: 2,
   bathroom: 1,

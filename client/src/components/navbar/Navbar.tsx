@@ -1,6 +1,7 @@
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
 import "./navbar.scss";
 import { Link } from "react-router-dom";
+import {AuthContext, type AuthContextType} from "../../context/AuthContext"
 
 const Navbar = function () {
 
@@ -8,6 +9,7 @@ const Navbar = function () {
     const handleClik = function () {
         setOpen(!open)
     }
+    const {currentUser, updateUser} = useContext(AuthContext) as AuthContextType
 
 
     return (
@@ -24,8 +26,23 @@ const Navbar = function () {
                 </div>
 
                 <div className="right">
-                    <Link to="/" className="login">Se Connecter</Link>
-                    <Link to="/" className="register">S'incrire</Link>
+
+                    {currentUser ? (
+                        <div className="user">
+                            <img src={currentUser?.avatarUrl || "/images/noavatar.jpg"} alt="Avatar de l'utilisateur"/>
+                            <span>{currentUser?.username}</span>
+                            <Link  to="/profile" className="redirectProfile">
+                                Profile
+                            </Link>
+                        </div>
+                    ) : <>
+
+                        <Link to="/login" className="login">Connexion</Link>
+                        <Link to="/register" className="register">S'incrire</Link>
+
+                    </>}
+
+                    {/* Mobile Display */}
                     <div className="menuIcon">
                         <img src="/images/menu.png" alt="" onClick={handleClik} />
                     </div>
@@ -41,11 +58,13 @@ const Navbar = function () {
                         }} to="/">Profile</Link>
                         <Link onClick={function(){
                             setOpen(false)
-                        }} to="/">Se Connecter</Link>
+                        }} to="/">Connexion</Link>
                         <Link onClick={function(){
                             setOpen(false)
                         }} to="/">S'inscrire</Link>
                     </div>
+
+
                 </div>
             </div>
         </nav>

@@ -2,8 +2,9 @@ import mongoose from "mongoose"
 
 const BloodBankSchema = new mongoose.Schema({
     name: {
+        type: String,
         required: true,
-        type: String
+
     },
     desc: {
         type: String,
@@ -28,6 +29,7 @@ const BloodBankSchema = new mongoose.Schema({
     hospital: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Hospital",
+        required: true
     }
 }, {timestamps: true})
 

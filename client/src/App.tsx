@@ -6,12 +6,15 @@ import {
   useRouteError
 
 } from "react-router-dom"
-import Layout from "./pages/layout/Layout";
 import HomePage from "./pages/homePage/HomePage";
 import ListPage from "./pages/listPage/ListPage";
-import SinglePage from "./components/singlePage/SinglePage";
 import Profile from "./pages/profile/Profile";
 import ProfileUpdatePage from "./pages/profileUpdatePage/ProfileUpdatePage";
+import Register from "./pages/register/Register";
+import Login from "./pages/login/Login";
+import { Layout, RequireAuthLayout } from "./pages/layout/Layout";
+import SinglePage from "./pages/singlePage/SinglePage";
+import { listPageLoader } from "./loader/listPageLoader";
 
 function App () {
 
@@ -25,25 +28,43 @@ function App () {
           path: "",
           element: <HomePage/>
         },
-        {
-          path: "list",
-          element: <ListPage/>,
-        },
+
         {
           path: ":id",
           element: <SinglePage/>
+        },
+
+
+        {
+          path: "register",
+          element: <Register/>
+        },
+        {
+          path: "login",
+          element: <Login/>
+        }
+        
+      ]
+    },
+     {
+      path: "/",
+      element: <RequireAuthLayout/>,
+      children: [
+        {
+          path: "profileUpdatePage/:id",
+          element: <ProfileUpdatePage/>
         },
         {
           path: "profile",
           element: <Profile/>
         },
         {
-          path: "profileUpdatePage/:id",
-          element: <ProfileUpdatePage/>
-        }
-        
+          path: "list",
+          element: <ListPage/>,
+          loader: listPageLoader
+        },
       ]
-    }
+     }
   ])
 
   return (

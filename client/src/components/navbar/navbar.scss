@@ -93,6 +93,38 @@
                 font-weight: bold;
             }
 
+            .user {
+                display: flex;
+                font-weight: bold;
+                align-items: center;
+                flex-direction: row;
+
+                img  {
+                    width: 40px;
+                    height: 40px;
+                    margin-right: 20px;
+                    object-fit: cover;
+                    border-radius: 50%;
+                    cursor: pointer;
+                }
+                
+                span {
+                    font-size: 16px;
+                    font-weight: inherit;
+
+                    @include responsive.sm {
+                        display: none !important;
+                    }
+                }
+
+                .redirectProfile {
+                    font-size: 16px;
+                    cursor: pointer;
+                    background-color: variables.$yellow;
+                }
+                
+            }
+
             .menuIcon {
                 display: none;
                 z-index: 999;

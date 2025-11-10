@@ -7,17 +7,19 @@ import {MedalIcon, ToggleLeft} from "lucide-react"
 interface ItemType  {
     item: {
         name: string,
-        id: number,
+        _id: string,
         type: string,
         image: Array<string>,
         desc: string,
+        rhesus: string
         status?: string,
         hospital: {
             name: string,
             address: string,
             lat?: number,
             lng?: number
-            city: string
+            city: string,
+
         }
     }
     
@@ -31,25 +33,30 @@ const BloodCard = function ({item}: ItemType) {
 
                 <div className="left">
                     <h2 className="name">
-                        <Link to={`/${item?.id}`}>{item?.name}</Link>
+                        <Link to={`/${item?._id}`}>{item?.name}</Link>
                     </h2>
                     <p className="address">
                         <img src="/images/pin.png" alt="" />
                         <span>{item?.hospital?.address}</span>
                     </p>
-                    <p className="type">{`Sang ${item?.type}`}</p>
 
-                        <div className="features">
-                            <div className="feature">
-                                <FaToolbox className="icon"/>
-                                <span>Disponible</span>
-                            </div>
+                    <div className="analysis">
+                        <p className="type">{`Sang ${item?.type}`}</p>
+                        <p className="rhesus">{`Rhésus ${item?.rhesus}`}</p>
 
-                            <div className="feature">
-                                <FaCheckCircle className="icon"/>
-                                <span>Vérifié</span>
-                            </div>
+                    </div>
+
+                    <div className="features">
+                        <div className="feature">
+                            <FaToolbox className="icon"/>
+                            <span>Disponible</span>
                         </div>
+
+                        <div className="feature">
+                            <FaCheckCircle className="icon"/>
+                            <span>Vérifié</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div className="right">

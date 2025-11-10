@@ -15,7 +15,7 @@ const Slider = function ({images} ) {
     return (
         <div className="slider">
             <div className="bigImage">
-                <img src={currentImage || Image} alt="Grande Image" />
+                <img src={currentImage || "/images/tous.jpg"} alt="Grande Image" />
             </div>
             <div className="smallImages">
                 {images.map(function(image: string, index: number){

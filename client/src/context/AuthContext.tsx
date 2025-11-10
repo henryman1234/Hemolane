@@ -3,12 +3,14 @@ import React, { createContext, useEffect, useState } from "react";
 type User = {
     username: string,
     email: string,
-    password: string
+    password: string,
+    _id: string,
+    avatarUrl?: string
 }
 
-type AuthContextType =  {
+export type AuthContextType =  {
     currentUser: User | null,
-    update: (user: User | null) => void
+    updateUser: (user: User | null) => void
 }
 
 export const AuthContext = createContext<AuthContextType | null>(null)
@@ -20,7 +22,7 @@ export const AuthContextProvider = function ({children}: {children: React.ReactN
         return storedUser? JSON.parse(storedUser) as User : null
     })
     
-    function update (data: User | null) {
+    function updateUser (data: User | null) {
         setCurrentUser(data)
     }
 
@@ -29,7 +31,7 @@ export const AuthContextProvider = function ({children}: {children: React.ReactN
     }, [currentUser])
 
     return (
-        <AuthContext.Provider value={{currentUser, update}}>
+        <AuthContext.Provider value={{currentUser, updateUser}}>
             {children}
         </AuthContext.Provider>
     )

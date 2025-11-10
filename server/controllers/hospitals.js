@@ -84,9 +84,10 @@ export const createBloodBank  = async function (req, res, next) {
     const hospitalId = req.params.id
 
     const newBloodBank = new BloodBank({
-        name: req.body.name,
-        type: req.body.type,
+        name: req.body.name?.trim(),
+        type: req.body.type?.trim(),
         desc: req.body.desc,
+        rhesus: req.body.rhesus?.trim(),
         hospital: hospitalId
     })
 

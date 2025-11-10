@@ -1,9 +1,75 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import "./singlePage.scss";
-import Slider from "../slider/Slider";
 import { singlePostData } from "../../dummydata";
+import { useNavigate, useParams } from "react-router-dom";
+import Slider from "../../components/slider/Slider";
+
+interface BloodBankType {
+    _id: string,
+    type: string,
+    desc: string,
+    rhesus: string,
+    name: string,
+    status: string,
+    image: Array<string>,
+    hospital: {
+        name: string,
+        address: string,
+        lat?: number,
+        lng?: number,
+        city: string
+    }
+
+}
 
 const SinglePage = function () {
+    
+    const {id} = useParams()
+    const [error, setError] = useState("")
+    const [isFetching, setIsFetching] = useState(false)
+    const navigate = useNavigate()
+    const apiUrl = import.meta.env.VITE_API_URL
+    const  [bloodBank, setBloodBank] = useState({})
+
+    
+
+    useEffect(function() {
+        const handleSingleBloodBank = async function () {
+            try {
+                
+                const res = await fetch(`${apiUrl}/bloodBanks/${id}`, {
+                    method: "GET",
+                    credentials: "include",
+                    cache: "no-store",
+                    headers: {
+                        Accept: "application/json; charset=utf-8"
+                    }
+                })
+    
+                if (res.ok) {
+                    const data = await res.json()
+                    setBloodBank(data?.data)
+                    console.log(data)
+                }
+    
+            } catch (err: any) {
+                setError(err?.message)
+            } finally {
+                setIsFetching(false)
+            }
+        }
+
+        handleSingleBloodBank()
+    }, [])
+
+    if (isFetching) {
+        return (
+            <div>...Chargement</div>
+        )
+    }
+
+
+
     return (
         <div className="singlePage">
             <div className="singlePageContainer">
@@ -18,22 +84,22 @@ const SinglePage = function () {
                             <div className="top">
 
                                 <div className="post">
-                                    <h1>{singlePostData.name}</h1>
+                                    <h1>{bloodBank?.name}</h1>
                                     <div className="address">
                                         <img src="/images/pin.png" alt="" />
-                                        <span>{singlePostData.address}</span>
+                                        <span>{bloodBank?.hospital?.address}</span>
                                     </div>
-                                    <div className="price">{singlePostData.price} XAF</div>
+                                    <div className="price">{`Sang ${bloodBank?.type}`}</div>
                                 </div>
 
                                 <div className="user">
                                     <img src="/images/3.jpeg" alt="" />
-                                    <span>Hopital Efoulan</span>
+                                    <span>{bloodBank?.hospital?.name}</span>
                                 </div>
                             </div>
 
                             <div className="bottom">
-                                {singlePostData.description}
+                                {bloodBank?.desc}
                             </div>
                         </div>
                    </div>
@@ -48,7 +114,7 @@ const SinglePage = function () {
                                 <img src="/images/utility.png" alt="" />
                                 <div className="featureText">
                                     <span>Groupe sanguin</span>
-                                    <p>le sang est de groupe <strong>AB+</strong></p>
+                                    <p>le sang est de groupe <strong>{bloodBank.type}</strong></p>
                                 </div>
                             </div>
 
@@ -56,7 +122,7 @@ const SinglePage = function () {
                                 <img src="/images/utility.png" alt="" />
                                 <div className="featureText">
                                     <span>Rhésus</span>
-                                    <p>le rhésus est <strong>Positif</strong></p>
+                                    <p>le rhésus est <strong>{bloodBank?.rhesus}</strong></p>
                                 </div>
                             </div>
 

@@ -1,7 +1,14 @@
 import "./homePage.scss";
-import React from "react";
+import React, { useState } from "react";
 
 const HomePage = function () {
+
+    const [bloodType, setBloodType] = useState<string>("")
+    
+    const handleChange = function (e: React.ChangeEvent<HTMLInputElement>) {
+        setBloodType(e?.target.value)
+    }
+
     return (
         <div className="homePage">
             <div className="homeContainer">
@@ -13,7 +20,8 @@ const HomePage = function () {
                         <p>Notre startup révolutionne la recherche de banques de sang en connectant rapidement ceux qui en ont besoin avec les ressources disponibles. Grâce à une plateforme intuitive, nous facilitons l'accès aux dons de sang, en garantissant que chaque vie compte. En cas d'urgence, trouvez la banque de sang la plus proche en quelques clics!</p>
 
                         <form className="formData">
-                            <input type="text" name="type" placeholder="Saisissez le groupe sanguin"/>
+                            <input type="text" name="type" value={bloodType}
+                            onChange={handleChange} placeholder="Saisissez le groupe sanguin"/>
                             <button type="submit">Rechercher</button>
                         </form>
 
