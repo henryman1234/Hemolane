@@ -3,8 +3,8 @@ import type { LoaderFunctionArgs } from "react-router-dom"
 
 const fetchAllBloodBanks = async function (query: string, options: RequestInit = {}) {
     try {
-        // const apiUrl = "https://hemolane.onrender.com"
-        const apiUrl = "http://localhost:8000"
+        const apiUrl = "https://hemolane-backend.onrender.com"
+        // const apiUrl = "http://localhost:8000"
 
          // Construire l'URL complète avec les paramètres
         const url = `${apiUrl}/api/bloodBanks${query ? `?${query}` : ""}`;
