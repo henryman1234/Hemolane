@@ -1,0 +1,19 @@
+@use "../../sass/variables.scss";
+
+.popupContainer {
+    display: flex;
+    gap: 20px;
+
+    img {
+        object-fit: cover;
+        width: 64px;
+        height: 48px;
+        border-radius: 5px;
+    }
+
+    .textContainer {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+}

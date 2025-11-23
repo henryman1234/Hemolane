@@ -1,0 +1,12 @@
+@use "../../sass/variables.scss";
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+
+    main {
+        flex: 1;
+    }
+
+}

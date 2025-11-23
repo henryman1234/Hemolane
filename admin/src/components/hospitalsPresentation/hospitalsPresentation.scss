@@ -1,0 +1,80 @@
+.hospitalsPresentation {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+
+    .hospitalsInfo {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 3;
+
+        .title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            span {
+                font-size: 16px;
+            }
+           
+        }
+
+        h1 {
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+
+        a {
+            color: #079FA0;
+            font-size: 18px;
+            transition: 0.32s ease;
+            text-decoration: none;
+
+            &:hover {
+                transition: 0.32s ease;
+                
+                .icon  {
+                    display: inline;
+                    transition: 0.32s ease;
+                }
+            }
+
+            .icon {
+                display: none ;
+                transition: 0.32s ease;
+            }
+        }
+
+
+    }
+
+    .chartInfo {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 2;
+
+        .chart {
+            width: 100%;
+            height: 100%;
+        }
+
+        .texts {
+            display: flex;
+            flex-direction: column;
+            text-align: right;
+
+            .percentage {
+                color: #079FA0;
+                font-size: 30px;
+                font-weight: bold;
+            }
+
+            .duration {
+                font-size: 16px;
+            }
+        }
+    }
+}

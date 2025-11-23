@@ -1,0 +1,68 @@
+@import "./reset.scss";
+@import "./responsive.scss";
+@import "./variables.scss";
+
+
+@font-face {
+    src: url("../../public/fonts/Inter-Medium.ttf");
+    font-weight: 500;
+    font-family: "Inter", sans-serif;
+    font-display: swap;
+}
+
+@font-face {
+    src: url("../../public/fonts/PlayfairDisplay-Black.ttf");
+    font-weight: 500;
+    font-family: "Playfair", sans-serif;
+    font-display: swap;
+}
+
+@font-face {
+    src: url("../../public/fonts/Akira\ Expanded\ Demo.otf");
+    font-family: "Akira", sans-serif;
+    font-display: swap;
+    font-weight: 500;
+}
+
+@font-face {
+    src: url("../../public/fonts/Nexa-Heavy.ttf");
+    font-family: "Nexa", sans-serif;
+    font-display: swap;
+    font-weight: 500;
+}
+
+@font-face {
+    src: url("../../public/fonts/Nexa-ExtraLight.ttf");
+    font-family: "Light", sans-serif;
+    font-display: swap;
+    font-weight: 500;
+}
+
+@font-face {
+    src: url("../../public/fonts/Quantify.ttf");
+    font-family: "Quantify", sans-serif;
+    font-display: swap;
+    font-weight: 500;
+}
+
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    font-family: Inter, sans-serif;
+    width: 100vw;
+    background-color: #e6e6ff;
+
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1, h2, h3 {
+    margin-top: 0;
+}
