@@ -24,8 +24,7 @@ const app = express()
 const allowedOrigins = [
     "http://localhost:5173",
     "http://localhost:5174",
-    "https://hemolane-u1x1.vercel.app",
-    "https://hemolane-dashboard.vercel.app"
+    "https://hemolane-front.vercel.app"
 ]
 const corsOptions = {
     origin: function (origin, callback) {
