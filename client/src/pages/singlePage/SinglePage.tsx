@@ -86,14 +86,6 @@ const SinglePage = function () {
             })
 
             if (res.ok) {
-                console.log("réussi")
-                toast.success("Retirer avec succès",  {
-                    autoClose: 5000,
-                    closeOnClick: true,
-                    hideProgressBar: false,
-                    position: "top-right",
-                    draggable: true
-                })
 
                 Swal.fire({
                     title: "C'est fait!",
