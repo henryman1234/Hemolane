@@ -98,7 +98,7 @@ const BloodCard = function ({item, path}: BloodCardProps) {
 
                     <div className="iconsBox">
                         <div className="iconBox">
-                            <img onClick={handleSaveBloodBank} src="/images/save.png" alt="" />
+                            <img onClick={handleSaveBloodBank} src="/images/plus.svg" alt="" />
                         </div>
                         <div className="iconBox">
                             <img  src="/images/chat.png" alt="" />
