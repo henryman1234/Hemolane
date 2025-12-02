@@ -1,6 +1,7 @@
-import React, { useState, type FormEvent } from "react"
+import React, { useState,useContext, type FormEvent } from "react"
 import "./login.scss";
 import { Link, useNavigate } from "react-router-dom";
+import { AuthContext, type AuthContextType } from "../../context/AuthContext";
 
 const Register = function () {
 
@@ -8,6 +9,7 @@ const Register = function () {
     const [error, setError] = useState("")
     const navigate = useNavigate()
     const apiUrl = import.meta.env.VITE_API_URL
+    const {updateUser, currentUser} = useContext(AuthContext) as AuthContextType
 
 
     const handleSubmit = async function (e: FormEvent<HTMLFormElement>) {
@@ -35,7 +37,7 @@ const Register = function () {
 
             if (res.ok) {
                 const data = await res.json()
-                console.log(data)
+                updateUser(data?.data)
                 navigate("/")
             }
 
