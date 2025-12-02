@@ -97,5 +97,17 @@ export const menu = [
                 url: "/"
             }
         ]
+    },
+    {
+        id: 6,
+        title: "Déconnexion",
+        listItems: [
+            {
+                id: 1,
+                title: "Se déconnecter",
+                icon: "/images/logout.svg",
+                url: "/login"
+            }
+        ]
     }
 ]

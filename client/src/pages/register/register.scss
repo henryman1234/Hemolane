@@ -52,7 +52,7 @@
 
                     &:focus-visible {
                         transition: 0.2s ease;
-                        outline: 3px solid variables.$yellow;
+                        outline: 3px solid variables.$dark-bg;
                         border: 1px solid grey;
                     }
 

@@ -15,6 +15,7 @@ import Orders from "./pages/orders/Orders"
 import SingleUser from "./components/singleUser/SingleUser"
 import SingleHospital from "./components/singleHospital/SingleHospital"
 import SingleBloodBank from "./pages/singleBloodBank/SingleBloodBank"
+import RequireAuthLayout from "./pages/layout/Layout"
 
 
 function App () {
@@ -22,7 +23,7 @@ function App () {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Layout/>,
+      element: <RequireAuthLayout/>,
       children: [
         {
           path: "",

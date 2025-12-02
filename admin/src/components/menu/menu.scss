@@ -29,6 +29,12 @@
             border-radius: 10px;
             padding: 10px;
             transition: 0.32s ease;
+            cursor: pointer;
+            
+            img {
+                height: 20px;
+                width: 20px;
+            }
 
             &:hover {
                 background-color: variables.$soft-bg;

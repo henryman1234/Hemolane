@@ -1,0 +1,97 @@
+@use "../../sass/variables.scss";
+@use "../../sass/responsive.scss";
+
+.registerPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    width: 100vw;
+
+    @include responsive.sm {
+        justify-content: flex-start;
+    }
+
+    .registerContainer {
+        display: flex;
+        
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 20px;
+            -webkit-box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
+            -moz-box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
+            box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
+            background-color: variables.$soft-bg;
+            width: calc(100vw - 3rem);
+            max-width: 500px;
+            border-radius: 5px;
+
+            .registerTitle {
+                font-size: 23px;
+                font-weight: bold;
+                color: variables.$soft-color;
+            }
+
+            .loginItem {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                label {
+                    font-size: 14px;
+                    color: variables.$soft-color;
+                    font-weight: 500;
+                }
+
+                input {
+                    border-radius: 2px;
+                    padding: 8px;
+                    transition: 0.2s ease;
+                    border: none;
+                    color: variables.$main-bg;
+                    outline: none;
+                    font-size: 16px;
+
+                    &:focus-visible {
+                        transition: 0.2s ease;
+                        outline: 3px solid variables.$main-color;
+                        border: 1px solid variables.$main-color;
+                    }
+
+                    &::placeholder {
+                        font-size: 14px;
+                    }
+                }
+
+                .registerButton {
+                    background-color: variables.$dark-color;
+                    color: #fff;
+                    padding: 8px;
+                    font-weight: 700;
+                    font-size: 16px;
+                    border: none;
+                    border-radius: 2px;
+                    outline: none;
+                    margin-top: 5px;
+                    cursor: pointer;
+
+                }
+            
+                .switch {
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: grey;
+
+                    a {
+                        color: rgb(73, 73, 241);
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+}

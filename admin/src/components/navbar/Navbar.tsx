@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./navbar.scss";
+import { AuthContext, type AuthContextType } from "../../context/AuthContext";
 
 const Navbar = function () {
+
+    const {currentUser, updateUser} = useContext(AuthContext) as AuthContextType
+
     return (
         <div className="navbar">
             <div className="logo">
@@ -18,8 +22,8 @@ const Navbar = function () {
                     <span>1</span>
                 </div>
                 <div className="user">
-                    <img src="/images/6.jpeg" alt=""  />
-                    <span>Henry Euloge</span>
+                    <img src={currentUser?.avatarUrl || "/images/noavatar.jpg"} alt=""  />
+                    <span>{currentUser?.username}</span>
                 </div>
                 <img src="/images/settings.svg" alt="" className="icon" />
             </div>

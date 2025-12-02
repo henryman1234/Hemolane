@@ -60,7 +60,7 @@ export const deleteHospitalAndBanks = async function (req, res, next) {
     try {
 
         const hospital = await Hospital.findById(id)
-        if (!id) {
+        if (!hospital) {
             return next(createError(404, "Cette Hopital n'existe pas!"))
         }
         
@@ -158,7 +158,7 @@ export const updateBloodBank = async function (req, res, next) {
 
         if (!hospital.bloodBanks.includes(bloodBankId)) {
             hospital.bloodBanks.push(bloodBankId)
-            await Hospital.save()
+            await hospital.save()
         }
 
 
