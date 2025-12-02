@@ -127,7 +127,6 @@ const Users = function () {
       <div className="info">
         <h1>Les utilisateurs</h1>
         <button className="add">Ajouter un utilisateur</button>
-        <ToastContainer/>
       </div>
 
       <DataTable path={path} columns={columns} rows={users}/>

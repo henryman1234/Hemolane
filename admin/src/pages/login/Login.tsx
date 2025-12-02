@@ -48,8 +48,6 @@ const Register = function () {
         }
     }
 
-
-
     return (
         <div className="loginPage">
 

@@ -10,12 +10,12 @@ import Hospitals from "./pages/hospitals/Hospitals"
 import Users from "./pages/users/Users"
 import Login from "./pages/login/Login"
 import Register from "./pages/register/Register"
-import Layout from "./pages/layout/Layout"
 import Orders from "./pages/orders/Orders"
 import SingleUser from "./components/singleUser/SingleUser"
 import SingleHospital from "./components/singleHospital/SingleHospital"
 import SingleBloodBank from "./pages/singleBloodBank/SingleBloodBank"
-import RequireAuthLayout from "./pages/layout/Layout"
+import { Layout, RequireAuthLayout } from "./pages/layout/Layout"
+import { ToastContainer } from "react-toastify"
 
 
 function App () {
@@ -23,12 +23,29 @@ function App () {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <RequireAuthLayout/>,
+      element: <Layout/>,
       children: [
+
         {
           path: "",
           element: <HomePage/>
         },
+
+        {
+          path: "login",
+          element: <Login/>
+        },
+        {
+          path: "register",
+          element: <Register/>
+        },
+
+      ]
+    },
+    {
+      path: "/",
+      element: <RequireAuthLayout/>,
+      children: [
         {
           path: "bloodBanks",
           element: <BloodBanks/>
@@ -41,14 +58,7 @@ function App () {
           path: "users",
           element: <Users/>
         },
-        {
-          path: "login",
-          element: <Login/>
-        },
-        {
-          path: "register",
-          element: <Register/>
-        },
+
         {
           path: "orders",
           element: <Orders/>
@@ -66,12 +76,15 @@ function App () {
           element: <SingleBloodBank/>
         }
       ]
-    },
+    }
  
   ])
 
   return (
-    <RouterProvider router={router}/>
+    <>
+      <RouterProvider router={router}/>
+      <ToastContainer autoClose={false}/>
+    </>
   )
 }
 

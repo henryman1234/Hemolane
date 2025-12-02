@@ -7,6 +7,24 @@ import Footer from "../../components/footer/Footer";
 import { AuthContext, type AuthContextType } from "../../context/AuthContext";
 import { useContext } from "react";
 
+const Layout = function () {
+
+    return (
+        <div className="layout">
+            <Navbar/>
+            <div className="containerApp">
+                <div className="menuContainer">
+                    <Menu/>
+                </div>
+                <div className="contentContainer">
+                    <Outlet/>
+                </div>
+            </div>
+            <Footer/>
+        </div>
+    )
+}
+
 const RequireAuthLayout = function () {
 
     const {currentUser} = useContext(AuthContext) as AuthContextType
@@ -31,4 +49,4 @@ const RequireAuthLayout = function () {
     }
 }
 
-export default RequireAuthLayout
+export  {Layout, RequireAuthLayout}

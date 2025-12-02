@@ -29,7 +29,7 @@ const RequireAuthLayout = function () {
             <div className="layout">
                 <Navbar/>
                 <main>
-                <Outlet/> 
+                    <Outlet/> 
                 </main>
             </div>
         )
