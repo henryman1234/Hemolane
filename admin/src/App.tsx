@@ -16,6 +16,7 @@ import SingleHospital from "./components/singleHospital/SingleHospital"
 import SingleBloodBank from "./pages/singleBloodBank/SingleBloodBank"
 import { Layout, RequireAuthLayout } from "./pages/layout/Layout"
 import { ToastContainer } from "react-toastify"
+import CreateHospitalPage from "./pages/createHospitalPage/CreateHospitalPage"
 
 
 function App () {
@@ -74,6 +75,10 @@ function App () {
         {
           path: "bloodBanks/:id",
           element: <SingleBloodBank/>
+        },
+        {
+          path: "createHospital",
+          element: <CreateHospitalPage/>
         }
       ]
     }

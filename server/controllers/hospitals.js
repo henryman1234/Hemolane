@@ -11,6 +11,7 @@ export const createHospital = async function (req, res, next) {
             city: req.body?.city,
             address: req.body?.address,
             lng: req.body?.lng,
+            phone: req.body?.phone,
             lat: req.body?.lat
         })
 

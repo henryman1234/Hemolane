@@ -52,19 +52,19 @@ export const menu = [
     },
     {
         id: 3,
-        title: "generals",
+        title: "generales",
         listItems: [
             {
-                id: 1,
-                url: "/",
-                title: "Elements",
-                icon: "/images/element.svg"
+                id: 2,
+                title: "Créer un hopital",
+                icon: "/images/note.svg",
+                url: "/createHospital"
             },
             {
-                id: 2,
-                title: "Notes",
-                icon: "/images/note.svg",
-                url: "/"
+                id: 1,
+                url: "/createBloodBank",
+                title: "Créer une banque de sang",
+                icon: "/images/element.svg"
             },
             {
                 id: 3,

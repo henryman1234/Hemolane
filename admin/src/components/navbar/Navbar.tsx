@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import "./navbar.scss";
 import { AuthContext, type AuthContextType } from "../../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
-import { FaClosedCaptioning } from "react-icons/fa";
 import { toast } from "react-toastify";
 
 const Navbar = function () {
@@ -65,7 +64,7 @@ const Navbar = function () {
                 </div>
                 {currentUser ? <>
                     <div className="user">
-                        <img src={currentUser?.avatarUrl || "/images/noavatar.jpg"} className="avatar" alt=""  />
+                        <img src={currentUser?.avatarUrl || "/images/noavatar.png"} className="avatar" alt=""  />
                         <span>{currentUser?.username}</span>
                         <img src="/images/logout.svg" alt="" className="icon" onClick={handleLogout} />
                     </div>
@@ -74,7 +73,7 @@ const Navbar = function () {
 
 
             </div>
-        </div>
+        </div> 
     )
 }
 
