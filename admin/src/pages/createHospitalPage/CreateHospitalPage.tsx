@@ -11,7 +11,7 @@ const CreateHospitalPage = function () {
     const apiUrl = import.meta.env.VITE_API_URL
     const navigate = useNavigate()
     const formRef = useRef<HTMLFormElement | null>(null)
-    const [image, setImage] = useState<string>("")
+    const [image, setImage] = useState("")
     const [avatarUrl, setAvatarUrl] = useState("")
 
     const handleCreateHospital = async function (e: React.FormEvent<HTMLFormElement>) {
