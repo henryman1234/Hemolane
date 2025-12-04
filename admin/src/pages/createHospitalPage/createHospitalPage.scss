@@ -13,22 +13,40 @@
         width: 100%;
         justify-content: space-between;
 
+        @include responsive.sm {
+            flex-direction: column;
+            gap: 30px;
+        }
+
         .createContainer {
             display: flex;
             flex-direction: column;
             flex: 3;
 
+            @include responsive.sm {
+                flex: 1;
+            }
+
             h1 {
                 color: variables.$soft-color;
-                font-weight: 500;
+                font-weight: 700;
                 font-size: 35px;
+
+                @include responsive.sm {
+                    font-size: 28px;
+                }
+        
             }
 
             .wrapper {
                 margin-top: 20px;
                 height: 100%;
-                padding-right: 20px;
+                padding-right: 30px;
                 // overflow-y: scroll;
+
+                @include responsive.sm {
+                    padding: 0;
+                }
 
                 .form {
                     display: flex;
@@ -44,6 +62,12 @@
                             font-weight: 500;
                             font-size: 18px;
                             color: variables.$soft-color;
+
+                            @include responsive.sm {
+                                font-size: 16px;
+                            }
+                    
+                            
                         }
 
                         input {
@@ -97,6 +121,10 @@
             flex: 2;
             display: flex;
             flex-direction: column;
+
+            @include responsive.sm {
+                flex: 1;
+            }
 
             .text{
                 color: variables.$soft-color;
