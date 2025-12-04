@@ -1,13 +1,17 @@
 import React from "react"
 import "./map.scss";
 import {
-    MapContainer,
-    TileLayer,
+    MapContainer as BaseMapContainer,
+    TileLayer as BaseTileLayer,
     Marker,
     Popup
 } from "react-leaflet"
 import "leaflet/dist/leaflet.css"
 import Pin from "../pin/Pin";
+
+// Relax React-Leaflet component prop types to avoid TS prop mismatches while keeping runtime behavior
+const MapContainer = BaseMapContainer as React.ComponentType<any>;
+const TileLayer = BaseTileLayer as React.ComponentType<any>;
 
 interface Hospital {
     name: string;

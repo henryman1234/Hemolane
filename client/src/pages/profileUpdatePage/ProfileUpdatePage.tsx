@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react"
-import "./profileUpdatePage.scss";
 import { useNavigate, useParams } from "react-router-dom";
+import "./profileUpdatePage.scss";
 import { AuthContext, type AuthContextType } from "../../context/AuthContext";
 import UploadWidget from "../../components/uploadWidget/UploadWidget";
 
