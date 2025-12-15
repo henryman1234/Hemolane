@@ -1,0 +1,79 @@
+@use "../../sass/responsive.scss";
+@use "../../sass/variables.scss";
+
+
+.add {
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.724);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    .modal {
+        padding: 30px;
+        border-radius: 10px;
+        background-color: variables.$main-bg;
+        position: relative;
+
+        h1 {
+            color: variables.$soft-color;
+            margin-bottom: 20px;
+            font-weight: 500px;
+        }
+
+        .close {
+            font-weight: 900;
+            font-size: 30px;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        form {
+            display: flex;
+            justify-content: space-between;
+            max-width: 500px;
+            flex-wrap: wrap;
+
+            .item {
+                display: flex;
+                gap: 10px;
+                flex-direction: column;
+                margin-bottom: 20px;
+
+                label {
+                    font-size: 15px;
+                    color: variables.$soft-color;
+                }
+
+                input {
+                    padding: 10px;
+                    background-color: transparent;
+                    color: white;
+                    border: 1px solid variables.$soft-color ;
+                    font-size: 16px;
+                    font-weight: 500;
+                    border-radius: 3px;
+                }
+
+
+            }
+
+            button {
+                width: 100%;
+                padding: 10px;
+                cursor: pointer;
+                border: none;
+                background-color: variables.$soft-color;
+                color: variables.$dark-bg;
+                outline: none;
+                
+            }
+        }
+    }
+}

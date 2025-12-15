@@ -3,6 +3,7 @@ import "./hospitals.scss";
 import type { GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
 import DataTable from "../../components/dataTable/DataTable";
 import { useLocation } from "react-router-dom";
+import Add from "../../components/add/Add";
 
 const Hospitals = function () {
 
@@ -10,6 +11,8 @@ const Hospitals = function () {
     const [isFetching, setIsFetching] = useState(false)
     const [hospitals, setHospitals] = useState([])
     const apiUrl = import.meta.env.VITE_API_URL
+    const[open, setOpen] = useState<boolean>(false)
+
 
     const location = useLocation()
     const path= location.pathname
@@ -93,7 +96,6 @@ const Hospitals = function () {
 
     ]
 
-
     if (isFetching) {
         return (
             <div>Chargement...</div>
@@ -105,11 +107,13 @@ const Hospitals = function () {
         <div className="hospitals">
             <div className="info">
                 <h1>Les Hopitaux</h1>
-                <button>ajouter un hopital</button>
+                <button onClick={function() {
+                    setOpen(true)
+                }}>ajouter un hopital</button>
             </div>
 
             <DataTable path={path} rows={hospitals} columns={columns}/>
-
+            {open  && <Add item="Hopital" columns={columns} setOpen={setOpen} /> }
             
         </div>
     )

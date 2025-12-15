@@ -45,14 +45,14 @@
                 input {
                     border: 1px solid variables.$blue;
                     border-radius: 2px;
-                    padding: 5px;
+                    padding: 8px;
                     transition: 0.2s ease;
                     color: variables.$blue;
                     font-size: 16px;
 
                     &:focus-visible {
                         transition: 0.2s ease;
-                        outline: 3px solid variables.$blue;
+                        outline: 3px solid variables.$yellow;
                         border: 1px solid grey;
                     }
 

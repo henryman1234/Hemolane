@@ -10,9 +10,9 @@ export const createHospital = async function (req, res, next) {
             name: req.body?.name,
             city: req.body?.city,
             address: req.body?.address,
-            lng: req.body?.lng,
+            lng: typeof req.body?.lng !== "number" ? Number(req.body?.lng): req.body?.lat,
             phone: req.body?.phone,
-            lat: req.body?.lat
+            lat: typeof req.body?.lng !== "number" ? Number(req.body?.lng):req.body?.lng
         })
 
         const savedHospital = await newHospital.save()

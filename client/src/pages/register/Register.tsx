@@ -8,6 +8,7 @@ const Register = function () {
     const [error, setError] = useState("")
     const navigate = useNavigate()
     const apiUrl = import.meta.env.VITE_API_URL
+    console.log(apiUrl)
 
 
     const handleSubmit = async function (e: FormEvent<HTMLFormElement>) {
