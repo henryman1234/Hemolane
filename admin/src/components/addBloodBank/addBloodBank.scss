@@ -1,0 +1,159 @@
+@use "../../sass/variables.scss";
+@use "../../sass/responsive.scss";
+
+.addBloodBank {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.724);
+    align-items: center;
+    z-index: 10;
+    
+
+    .modal {
+        background-color: variables.$dark-bg;
+        padding: 50px;
+        border-radius: 10px;
+        position: relative;
+
+
+        .close {
+            font-weight: 900;
+            font-size: 30px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+        }
+
+        h2 {
+            font-weight: 700;
+            font-size:  30px;
+            color: variables.$soft-color;
+            margin-bottom: 15px;
+        }
+
+        form  {
+            width: 100%;
+            margin: 15px 0;
+            display: flex;
+            height: 100%;
+            gap: 20px;
+
+            .formItems {
+                flex: 3;
+                display: flex;
+                flex-direction: column;
+
+                .main {
+                    height: 100%;
+                    display: flex;
+                    width: 100%;
+                    max-width: 700px;
+                    gap: 20px;
+                    flex: 2;
+                    flex-wrap: wrap;
+
+                    .formItem {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+    
+                        label {
+                            color: variables.$soft-color;
+                            font-size: 14px;
+                            font-weight: 500;
+                            
+                        }
+                        
+                        input {
+                            background: transparent;
+                            font-size: 16px;
+                            color: #fff;
+                            font-weight: 500;
+                            border: none;
+                            outline: none;
+                            border-radius: 3px;
+                            padding: 10px;
+                            border: 1px solid variables.$soft-color;
+
+                            &::placeholder {
+                                font-size: 14px;
+                                color: gray;
+                            }
+
+                            &:focus-visible {
+                                outline: 2px solid #FAC005;
+                                transition: 0.32s ease;
+                                border: 1px solid gray;
+                            }
+                        }
+    
+                        
+                    }
+                }
+
+                .buttonContainer {
+                    width: 100%;
+
+                    button  {
+                        width: 100%;
+                        border: none;
+                        color: variables.$dark-bg;
+                        outline: none;
+                        background-color: #FAC005;
+                        border-radius: 5px;
+                        padding: 10px;
+                        font-weight: 500;
+                        font-size: 16px;
+                        cursor: pointer;
+                    }
+
+                }
+
+
+
+            }
+
+            .descContainer {
+                flex: 2;
+                height: 100%;
+                width: 100%;
+
+                textarea {
+                    height: 300px;
+                    border-radius: 5px;
+                    border: 1px solid variables.$soft-color;
+                    resize: none;
+                    font-family: inherit;
+                    padding: 10px;
+                    color: variables.$dark-bg ;
+                    font-size: 15px;
+                    font-weight: 500px;
+                    width: 100%;
+                    background-color: #fff;
+
+                    &::placeholder {
+                        font-size: 16px;
+                        color: gray;
+                    }
+
+                    &:focus-visible {
+                        outline: 2px solid #FAC005;
+                        transition: 0.32s ease;
+                        border: 1px solid gray;
+                    }
+                }
+
+            }
+            
+
+
+        }
+
+    }
+}

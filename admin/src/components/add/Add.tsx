@@ -71,6 +71,7 @@ const Add = function (props: ModalTypes) {
     return (
         <div className="add">
             <div className="modal">
+                
                 <span onClick={function() {
                     props.setOpen(false)
                 }} className="close">x</span>

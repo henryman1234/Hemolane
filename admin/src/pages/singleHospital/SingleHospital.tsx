@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./singleHospital.scss";
 import { useNavigate, useParams } from "react-router-dom";
+import AddBloodBank from "../../components/addBloodBank/AddBloodBank";
 
 interface HospitalProps {
     name: string
@@ -20,6 +21,7 @@ const SingleHospital = function () {
     const  navigate = useNavigate()
     const apiUrl = import.meta.env.VITE_API_URL
     const [hospital, setHospital] = useState<HospitalProps | null>(null)
+    const [open, setOpen] = useState(false)
 
 
     useEffect(function() {
@@ -58,6 +60,8 @@ const SingleHospital = function () {
         <div className="singleHospital">
             <div className="singleHospitalContainer">
 
+                {open && <AddBloodBank setOpen={setOpen}/>}
+
                 <div className="item item1" style={{gridArea: "box-1"}}>
 
                     <div className="imgContainer">
@@ -94,7 +98,9 @@ const SingleHospital = function () {
                     </div>
 
                     <div className="buttonContainer">
-                        <button className="createBankButton">Créer une banque</button>
+                        <button onClick={function() {
+                            setOpen(true)
+                        }} className="createBankButton">Créer une banque</button>
                     </div>
                 </div>
 
