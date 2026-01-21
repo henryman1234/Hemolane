@@ -93,12 +93,12 @@ const ReservationPage = function () {
 
                     <div className="reservationItem ">
                         <label id="date" htmlFor="date">Date souhaitée</label>
-                        <input type="date" name="date" />
+                        <input placeholder="choisissez une date" type="date" name="date" />
                     </div>
 
                     <div className="reservationItem ">
                         <label id="time" htmlFor="time">Heure souhaitée</label>
-                        <input type="time"  name="time"/>
+                        <input placeholder="Choisissez une heure" type="time"  name="time"/>
                         
                     </div>
 
