@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react"
 import "./singlePage.scss";
 import { singlePostData } from "../../dummydata";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Slider from "../../components/slider/Slider";
 import { AuthContext, type AuthContextType } from "../../context/AuthContext";
 import { ToastContainer, toast } from "react-toastify";
@@ -17,10 +17,12 @@ interface BloodBankType {
     image: Array<string>,
     hospital: {
         name: string,
+        _id: string
         address: string,
         lat?: number,
         lng?: number,
-        city: string
+        city: string,
+        avatarUrl?: string
     }
 
 }
@@ -34,6 +36,9 @@ const SinglePage = function () {
     const apiUrl = import.meta.env.VITE_API_URL
     const  [bloodBank, setBloodBank] = useState<BloodBankType | null>(null)
     const {currentUser, updateUser} = useContext(AuthContext) as AuthContextType
+    const location = useLocation()
+    const pathname = location.pathname
+    const [userSavelist, setUserSavelist] = useState<BloodBankType[] | null>(null)
 
     
 
@@ -52,12 +57,15 @@ const SinglePage = function () {
     
                 if (res.ok) {
                     const data = await res.json()
+                    
                     setBloodBank(data?.data)
-                    console.log(data)
+
+
                 }
     
             } catch (err: any) {
                 setError(err?.message)
+                console.log("requete echouée")
             } finally {
                 setIsFetching(false)
             }
@@ -65,6 +73,9 @@ const SinglePage = function () {
 
         handleSingleBloodBank()
     }, [])
+
+
+    console.log()
 
 
 
@@ -102,12 +113,68 @@ const SinglePage = function () {
 
     }
 
+
+    //Request to verify if the user has already an bloodBank on his savelist array
+    useEffect(function(){
+        setIsFetching(true)
+
+        const handleVerifyUserSavelist = async function () {
+            try {
+                const res = await fetch(`${apiUrl}/api/users/${currentUser?._id}/saveList`,{
+                    method: "GET",
+                    cache: "no-store",
+                    credentials: "include",
+                    headers: {
+                        Accept: "application/json; charset=utf-8"
+                    }
+                })
+    
+                if (res.ok) {
+                    const data = await res.json()
+                    console.log(data)
+                    setUserSavelist(data?.data)
+                }
+
+            } catch (err: any) {
+                setError(err?.message)
+            } finally {
+                setIsFetching(false)
+            }
+        }
+
+        
+
+        handleVerifyUserSavelist()
+
+
+
+
+    }, [])
+
+    const verify = function (id: string | undefined) {
+        if (userSavelist) {
+            for (let item of userSavelist) {
+                if (item?._id === id) {
+                    return true
+                }
+                return false
+            }
+        }
+
+    }
+
+    const handleNavigate = function () {
+        navigate(`/${id}/orders/${bloodBank?.hospital?._id}`)
+    }
+
+
+
+
     if (isFetching) {
         return (
             <div>...Chargement</div>
         )
     }
-    
 
 
 
@@ -136,7 +203,7 @@ const SinglePage = function () {
                                 </div>
 
                                 <div className="user">
-                                    <img src="/images/3.jpeg" alt="" />
+                                    <img src={bloodBank?.hospital?.avatarUrl ||"/images/hopital.jpg" } alt="" />
                                     <span>{bloodBank?.hospital?.name}</span>
                                 </div>
                             </div>
@@ -179,16 +246,16 @@ const SinglePage = function () {
 
                         </div>
 
-                        <p className="title">Supprimer la sauvegarde</p>
+                        {verify(bloodBank?._id) && <p className="title">Supprimer la sauvegarde</p>}
 
-                        <button onClick={handleRemoveBloodBank} className="saveRemove">Retirer la sauvegarde</button>
+                        {verify(bloodBank?._id) && <button onClick={handleRemoveBloodBank} className="saveRemove">Retirer la sauvegarde</button>}
 
                         <p className="title">Commander la banque</p>
 
-                        <form method="GET" className="textCommand">
-                            <textarea placeholder="Ecrivez le message de votre commande" required minLength={20} name="message"></textarea>
-                            <button>Commander</button>
-                        </form>
+                        <div  className="textCommand">
+                            {/* <textarea placeholder="Ecrivez le message de votre commande" required minLength={20} name="message"></textarea> */}
+                            <button onClick={handleNavigate} >Commander</button>
+                        </div>
 
                     </div>
                 </div>

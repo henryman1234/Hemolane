@@ -11,7 +11,6 @@ const Navbar = function () {
     }
     const {currentUser, updateUser} = useContext(AuthContext) as AuthContextType
 
-
     return (
         <nav className="navbar">
             <div className="navbarContainer">

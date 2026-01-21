@@ -10,13 +10,18 @@ import Hospitals from "./pages/hospitals/Hospitals"
 import Users from "./pages/users/Users"
 import Login from "./pages/login/Login"
 import Register from "./pages/register/Register"
-import Orders from "./pages/orders/Orders"
+import Orders from "./pages/orders/Reservations"
 import SingleUser from "./components/singleUser/SingleUser"
 import SingleHospital from "./pages/singleHospital/SingleHospital"
 import SingleBloodBank from "./pages/singleBloodBank/SingleBloodBank"
 import { Layout, RequireAuthLayout } from "./pages/layout/Layout"
 import { ToastContainer } from "react-toastify"
 import CreateHospitalPage from "./pages/createHospitalPage/CreateHospitalPage"
+import Notifications from "./pages/notifications/Notifications"
+import ReservationsPage from "./pages/orders/Reservations"
+import Profile from "./pages/profile/Profile"
+import ProfileUpdatePage from "./pages/profileUpdatePage/ProfileUpdatePage"
+import HospitalUpdatePage from "./pages/hospitalUpdatePage/HospitalUpdatePage"
 
 
 function App () {
@@ -61,8 +66,8 @@ function App () {
         },
 
         {
-          path: "orders",
-          element: <Orders/>
+          path: "reservations",
+          element: <ReservationsPage/>
         },
         {
           path: "users/:id",
@@ -79,6 +84,22 @@ function App () {
         {
           path: "createHospital",
           element: <CreateHospitalPage/>
+        },
+        {
+          path: "notifications",
+          element:<Notifications/>
+        },
+        {
+          path: "profile",
+          element: <Profile/>
+        },
+        {
+          path: "profileUpdatePage/:id",
+          element: <ProfileUpdatePage/>
+        },
+        {
+          path: "hospitalUpdatePage/:id",
+          element: <HospitalUpdatePage/>
         }
       ]
     }

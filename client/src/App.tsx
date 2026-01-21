@@ -16,6 +16,8 @@ import { Layout, RequireAuthLayout } from "./pages/layout/Layout";
 import SinglePage from "./pages/singlePage/SinglePage";
 import { listPageLoader } from "./loader/listPageLoader";
 import { ToastContainer } from "react-toastify";
+import OrderPage from "./pages/orderPage/OrderPage";
+import ReservationPage from "./pages/reservation/Reservation";
 
 function App () {
 
@@ -29,12 +31,6 @@ function App () {
           path: "",
           element: <HomePage/>
         },
-
-        {
-          path: ":id",
-          element: <SinglePage/>
-        },
-
 
         {
           path: "register",
@@ -51,6 +47,18 @@ function App () {
       path: "/",
       element: <RequireAuthLayout/>,
       children: [
+        {
+          path: ":id",
+          element: <SinglePage/>
+        },
+        {
+          path: "reservations",
+          element: <ReservationPage/>
+        },
+        {
+          path: "/:bloodBankId/orders/:hospitalId",
+          element: <OrderPage/>
+        },
         {
           path: "profileUpdatePage/:id",
           element: <ProfileUpdatePage/>

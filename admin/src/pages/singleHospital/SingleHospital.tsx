@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./singleHospital.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import AddBloodBank from "../../components/addBloodBank/AddBloodBank";
+import { toast } from "react-toastify";
 
 interface HospitalProps {
     name: string
@@ -9,7 +10,9 @@ interface HospitalProps {
     city: string,
     lat: string,
     lng: string,
-    phone: Array<string>
+    phone1:string
+    phone2 :string,
+    avatarUrl?: string
 
 }
 
@@ -43,7 +46,6 @@ const SingleHospital = function () {
                 if (res.ok) {
                     const data = await res.json()
                     setHospital(data?.data)
-                    console.log(data)
                 }
                 
             } catch (err: any) {
@@ -56,6 +58,43 @@ const SingleHospital = function () {
         fetchHospitalDetails()
     }, [])
 
+    // Delete an Hopsital with his bloodBanks
+    const handleDeleteHospital = async function () {
+
+        try {
+
+            const res = await fetch(`${apiUrl}/api/hospitals/${id}`, {
+                method: "DELETE",
+                cache: "no-store",
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8"
+                },
+            })
+
+            if (res.ok) {
+                const data = await res.json()
+                toast.warning("Hopital supprimé avec succès", {
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    position: "top-right"
+                })
+                navigate(`/hospitals`)
+            }
+            
+        } catch (err: any) {
+            setError(err?.message)
+        } finally {
+            setIsFetching(false)
+        }
+    }
+
+    // Go the update page
+    const handleUpdate = function () {
+        navigate(`/hospitalUpdatePage/${id}`)
+    }
+
     return (
         <div className="singleHospital">
             <div className="singleHospitalContainer">
@@ -65,7 +104,7 @@ const SingleHospital = function () {
                 <div className="item item1" style={{gridArea: "box-1"}}>
 
                     <div className="imgContainer">
-                        <img src="/images/hopital.jpg" alt="" />
+                        <img src={hospital?.avatarUrl || "/images/hopital.jpg"} alt="" />
                     </div>
 
                     <div className="userInfos">
@@ -117,7 +156,7 @@ const SingleHospital = function () {
                                 <h3>Contact 1</h3>
                                 <span>Numéro 1</span>
                             </div>
-                            <h3 className="info">{hospital?.phone[0]}</h3>
+                            <h3 className="info">{hospital?.phone1}</h3>
 
                         </div>
 
@@ -126,7 +165,7 @@ const SingleHospital = function () {
                                 <h3>Contact 2</h3>
                                 <span>Numéro 2</span>
                             </div>
-                            <h3 className="info">{hospital?.phone[0]}</h3>
+                            <h3 className="info">{hospital?.phone2}</h3>
 
                         </div>
                     </div>
@@ -146,7 +185,7 @@ const SingleHospital = function () {
                             <h3>Supprimer un hopital</h3>
                             <span>Avec toutes ses banques</span>
                         </div>
-                        <button className="delete">Supprimer</button>
+                        <button onClick={handleDeleteHospital} className="delete">Supprimer</button>
 
                     </div>
 
@@ -155,15 +194,17 @@ const SingleHospital = function () {
                             <h3>Créer une banque</h3>
                             <span>Nom Hopital</span>
                         </div>
-                        <button className="create">créer </button>
+                        <button onClick={function(){
+                            setOpen(true)
+                        }} className="create">créer </button>
                     </div>
 
                     <div className="third-item">
                         <div className="main">
-                            <h3>Modifier l'hopiatl</h3>
+                            <h3>Modifier l'hopital</h3>
                             <span>Nom Hopital</span>
                         </div>
-                        <button className="modify">Modifier</button>
+                        <button onClick={handleUpdate} className="modify">Modifier</button>
                     </div>
 
                 </div>

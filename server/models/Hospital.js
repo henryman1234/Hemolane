@@ -14,10 +14,15 @@ const HospitalSchema = new Schema({
         type: String,
         default: ""
     },
-    phone: {
-        type: [String],
-        default: []
+    phone1: {
+        type: String,
+        required: true
     },
+    phone2: {
+        type: String,
+        required: true
+    },
+    
     lng: {type: Number},
     lat: {type: Number},
 

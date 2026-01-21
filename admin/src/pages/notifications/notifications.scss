@@ -1,0 +1,29 @@
+@use "../../sass/variables.scss";
+
+.notificationsPage {
+    min-height: 100vh;
+    width: 100vw;
+
+
+    .notificationsContainer {
+        width: 100%;
+        height: 100%;
+        max-width: 1024px;
+
+        .notificationsWrapper {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+
+            .item {
+                display: flex;
+                gap: 20px;
+                
+                button {
+                    height: fit-content;
+                }
+            }
+        }
+    }
+}

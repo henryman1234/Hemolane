@@ -72,18 +72,40 @@
                         font-size: 16px;
                     }
 
-                    .disconnect {
+                    .actionButtons  {
                         position: absolute;
-                        border: none;
-                        border-radius: 2px;
-                        color:  #fff;
-                        background-color: variables.$blue;
-                        font-size: 16px;
-                        font-weight: 500;
-                        cursor: pointer;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
                         right: 0;
-                        padding: 8px 10px;
+
+
+
+                        .reserve {
+                            border: none;
+                            border-radius: 2px;
+                            color:  #fff;
+                            background-color: variables.$blue;
+                            font-size: 16px;
+                            font-weight: 500;
+                            cursor: pointer;
+                            padding: 8px 10px;
+                        }
+
+                        .disconnect {
+                            border: none;
+                            border-radius: 2px;
+                            color:  #fff;
+                            background-color: red;
+                            font-size: 16px;
+                            font-weight: 500;
+                            cursor: pointer;
+                            padding: 8px 10px;
+                        }
+
                     }
+
+
             
                 }
 

@@ -13,7 +13,7 @@ export const menu = [
             },
             {
                 id: 2,
-                url: "/",
+                url: "/profile",
                 title: "Profile",
                 icon: "/images/user.svg"
             },
@@ -38,8 +38,8 @@ export const menu = [
             },
             {
                 id: 3,
-                url: "/orders",
-                title: "Commandes",
+                url: "/reservations",
+                title: "Reservations",
                 icon: "/images/order.svg"
             },
             {
@@ -62,8 +62,8 @@ export const menu = [
             },
             {
                 id: 1,
-                url: "/createBloodBank",
-                title: "Créer une banque de sang",
+                url: "/notifications",
+                title: "Page de notification",
                 icon: "/images/element.svg"
             },
             {

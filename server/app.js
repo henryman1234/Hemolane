@@ -10,10 +10,17 @@ import authRoute from "./routes/auth.js"
 import usersRoute from "./routes/users.js";
 import hospitalsRoute from "./routes/hospitals.js";
 import bloodBanksRoute from "./routes/bloodBanks.js";
-import requestsRoute from "./routes/requests.js"
+import notificationsRoute from "./routes/notifications.js"
+import ordersRoute from "./routes/orders.js";
+import reservationsRoute from "./routes/reservations.js"
+import { initSocket } from "./utils/socket.js"
+import {createServer} from "http"
 
 // Initialise express
 const app = express()
+const port = process.env.PORT || 8000
+
+
 
 
 // Middlewares
@@ -44,17 +51,19 @@ const corsOptions = {
 
 app.use(cors(corsOptions))
 
-
 app.use(cookieParser())
 app.use(morgan("dev"))
 app.use(express.json())
+
 
 // Routes for the API
 app.use("/api/users", usersRoute)
 app.use("/api/auth", authRoute)
 app.use("/api/bloodBanks", bloodBanksRoute)
 app.use("/api/hospitals", hospitalsRoute)
-app.use("/api/requests", requestsRoute)
+app.use("/api/orders", ordersRoute)
+app.use("/api/notifications", notificationsRoute)
+app.use("/api/reservations", reservationsRoute)
 
 
 // HandeError
@@ -68,6 +77,14 @@ app.use(function(err, req, res, next) {
         stack: err?.stack
     })
 })
+
+
+// Création du socket
+const httpServer = createServer(app)
+export const io = initSocket(httpServer)
+
+// Rendre l'instance "io" publique
+app.set("io", io)
 
 
 // Connect to MongoDB
@@ -93,11 +110,7 @@ app.get("/", function(req, res){
     res.send("Bonjour les gens")
 })
 
-
-
-const port = process.env.PORT || 8000
-
-app.listen(port, function(){
+httpServer.listen(port, function(){
     connect()
     console.log(`Serveur en écoute sur le port ${port}`)
 })

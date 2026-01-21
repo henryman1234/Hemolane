@@ -38,13 +38,13 @@ const Users = function () {
 
           setUsers(data?.data)
 
-          toast.success("Opération réusssie", {
-            position: "top-right",
-            draggable: true,
-            closeOnClick: true,
-            autoClose: 5000,
-            hideProgressBar: false
-          })
+          // toast.success("Opération réusssie", {
+          //   position: "top-right",
+          //   draggable: true,
+          //   closeOnClick: true,
+          //   autoClose: 5000,
+          //   hideProgressBar: false
+          // })
 
           console.log(data)
         }

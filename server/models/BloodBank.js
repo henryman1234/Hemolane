@@ -21,12 +21,22 @@ const BloodBankSchema = new mongoose.Schema({
     },
     rhesus: {
         type: String,
-        required: true
+        required: true,
+        enum: ["Positif", "Négatif"]
     },
+    // rhesus: {
+    //     type: String,
+    //     required: true
+    // },
     type: {
         type: String,
-        required: true
+        required: true,
+        enum: ["A+", "B+", "B-", "AB+", "AB-", "O+", "O-", "A-"]
     },
+    // type: {
+    //     type: String,
+    //     required: true
+    // },
     hospital: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Hospital",

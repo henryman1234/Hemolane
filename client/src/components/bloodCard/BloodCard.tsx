@@ -81,7 +81,7 @@ const BloodCard = function ({item, path}: BloodCardProps) {
                     <div className="features">
                         <div className="feature">
                             <FaToolbox className="icon"/>
-                            <span>Disponible</span>
+                            <span>{item?.status}</span>
                         </div>
 
                         <div className="feature">

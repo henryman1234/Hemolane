@@ -11,7 +11,7 @@ const CreateHospitalPage = function () {
     const apiUrl = import.meta.env.VITE_API_URL
     const navigate = useNavigate()
     const formRef = useRef<HTMLFormElement | null>(null)
-    const [image, setImage] = useState("")
+    const [image, setImage] = useState<string | undefined>("")
     const [avatarUrl, setAvatarUrl] = useState("")
 
     const handleCreateHospital = async function (e: React.FormEvent<HTMLFormElement>) {
@@ -23,9 +23,11 @@ const CreateHospitalPage = function () {
         const address = String(formData.get("address"))?.trim()
         const lat = String(formData.get("lat"))?.trim()
         const lng = String(formData.get("lng"))?.trim()
-        const phone = String(formData.get("phone"))?.trim()
+        const phone1 = String(formData.get("phone1"))?.trim()
+        const phone2 = String(formData.get("phone2"))?.trim()
 
-
+        
+        
         try {
 
             const res = await fetch(`${apiUrl}/api/hospitals`,  {
@@ -36,7 +38,7 @@ const CreateHospitalPage = function () {
                     "Content-Type": "application/json; charset=utf-8",
                     Accept: "application/json; charset=utf-8",
                 },
-                body: JSON.stringify({name, address, city, lat, lng, phone, avatarUrl:image})
+                body: JSON.stringify({name, address, city, lat, lng, phone1, phone2, avatarUrl:image})
             })
 
             if (res.ok) {
@@ -108,8 +110,13 @@ const CreateHospitalPage = function () {
                             </div>
 
                             <div className="formItem">
-                                <label htmlFor="phone" id="phone">Numero téléphone</label>
-                                <input type="text" id="phone" name="phone" placeholder="Numéro de telephone de l'hopital"  />
+                                <label htmlFor="phone1" id="phone1">Premier numéro de téléphone </label>
+                                <input type="text" id="phone1" name="phone1" placeholder="Numéro de telephone de l'hopital"  />
+                            </div>
+
+                            <div className="formItem">
+                                <label htmlFor="phone2" id="phone2">Second numéro de téléphone</label>
+                                <input type="text" id="phone2" name="phone2" placeholder="Numéro de telephone de l'hopital"  />
                             </div>
 
                             <div className="formItem">

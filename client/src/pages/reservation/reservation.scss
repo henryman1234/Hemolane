@@ -1,0 +1,131 @@
+@use "../../sass/variables.scss";
+
+
+.reservationPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    width: 100vw;
+
+    .pageContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 20px;
+            -webkit-box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
+            -moz-box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
+            box-shadow: 0px 5px 33px -21px rgba(66, 68, 90, 1);
+            background-color: #fff;
+            width: calc(100vw - 3rem);
+            max-width: 500px;
+            border-radius: 5px;
+
+            .reservationTitle {
+                font-size: 23px;
+                font-weight: bold;
+                color: variables.$blue;
+            }
+
+            .reservationItem {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                label {
+                    font-size: 14px;
+                    color: variables.$blue;
+                    font-weight: 500;
+                }
+
+                input {
+                    border: 1px solid variables.$blue;
+                    border-radius: 2px;
+                    padding: 8px;
+                    transition: 0.2s ease;
+                    color: variables.$blue;
+                    font-weight: bold;
+                    font-size: 16px;
+                    color: variables.$blue;
+
+
+                    &:focus-visible {
+                        transition: 0.2s ease;
+                        outline: 3px solid variables.$yellow;
+                        border: 1px solid grey;
+                    }
+
+                    &::placeholder {
+                        font-size: 14px;
+                    }
+                }
+
+                textarea {
+                    width: 100%;
+                    height: 200px;
+                    border-radius: 2px;
+                    font-size: 16px;
+                    line-height: 1.2;
+                    border: 1px solid variables.$blue;
+                    resize: none;
+                    font-family: Inter, sans-serif;
+                    padding: 10px;
+                    color: variables.$blue;
+                    outline: none;
+
+                    &:focus-visible {
+                        transition: 0.2s ease;
+                        outline: 3px solid variables.$yellow;
+                        border: 1px solid grey;
+                    }
+
+
+                    &::placeholder {
+                        font-size: 14px;
+                    }
+                }
+
+                .select {
+                    width: 100%;
+                    padding: 10px;
+                    border: 1px solid variables.$blue;
+                    border-radius: 2px;
+                    outline: none;
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: variables.$blue;
+
+                    &:focus-visible {
+                        transition: 0.2s ease;
+                        outline: 3px solid variables.$yellow;
+                        border: 1px solid grey;
+                    }
+
+
+                }
+
+                .loginButton {
+                    background-color: variables.$blue;
+                    color: #fff;
+                    padding: 6px;
+                    font-weight: 700;
+                    font-size: 16px;
+                    border: none;
+                    outline: none;
+                    margin-top: 5px;
+                    cursor: pointer;
+                    border-radius: 2px;
+
+                }
+
+            }
+        }
+    }
+}

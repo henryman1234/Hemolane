@@ -11,8 +11,9 @@ export const createHospital = async function (req, res, next) {
             city: req.body?.city,
             address: req.body?.address,
             lng: typeof req.body?.lng !== "number" ? Number(req.body?.lng): req.body?.lat,
-            phone: req.body?.phone,
-            lat: typeof req.body?.lng !== "number" ? Number(req.body?.lng):req.body?.lng
+            lat: typeof req.body?.lng !== "number" ? Number(req.body?.lng):req.body?.lng,
+            phone1: req.body?.phone1,
+            phone2: req.body?.phone2,
         })
 
         const savedHospital = await newHospital.save()
@@ -68,6 +69,7 @@ export const deleteHospitalAndBanks = async function (req, res, next) {
         // Supprimer toutes les banques de sang de ce hopital
         const deletedBanks = await BloodBank.deleteMany({hospital: id})
 
+        // et enfin on supprime l'hopital
         await Hospital.findByIdAndDelete(id)
         
         res.status(200).json({

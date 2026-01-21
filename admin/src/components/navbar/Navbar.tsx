@@ -3,6 +3,11 @@ import "./navbar.scss";
 import { AuthContext, type AuthContextType } from "../../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import NotificationsBox from "../notificationsBox/NotificationsBox";
+import NotificationItem from "../noticationItem/NotificationItem";
+import { useAdminNotification, type Notification} from "../../hooks/useAdminNotifications";
+import { FaTimes} from "react-icons/fa";
+
 
 const Navbar = function () {
 
@@ -11,6 +16,9 @@ const Navbar = function () {
     const [error, setError] = useState("")
     const [isDisconnecting, setIsDisconnecting] = useState(false)
     const apiUrl = import.meta.env.VITE_API_URL
+    const [isModalOpened,setIsModalOpened] = useState(false)
+    const notifications = useAdminNotification()
+    console.log(currentUser)
 
     const handleLogout = async function () {
         setError("")
@@ -58,10 +66,43 @@ const Navbar = function () {
 
             <div className="icons">
                 <img src="/images/search.svg" alt="" className="icon" />
-                <div className="notifications">
-                    <img src="/images/notifications.svg" alt="" className="ring" />
-                    <span>1</span>
-                </div>
+                <NotificationsBox length={notifications.length} setIsModalOpened={setIsModalOpened}/>
+
+
+                {/* Modal for notifications */}
+                {isModalOpened && <aside className="notificationsModal" >
+                    <span className="close">
+                        <p>Fermer</p>
+                        <FaTimes className="closeBtn" onClick={function(){
+                            setIsModalOpened(false)
+                        }}/>
+                    </span>
+
+                    <div className="notificationItems">
+
+                        <div className="notificationsTitle">
+                            <h3>Notifications</h3>
+                            <NotificationsBox isModalOpened={isModalOpened} setIsModalOpened={setIsModalOpened} length={notifications.length}/>
+                        </div>
+
+                        <div className="notificationsWrapper">
+
+                            {notifications.length === 0 && <p>Aucune notification pour le moment</p>}
+
+                            {notifications.map(function(notification: Notification){
+                                return (
+                                    <NotificationItem user={notification?.user} _id={notification?._id} createdAt={notification.createdAt} hospital={notification.hospital} bloodBank={notification.bloodBank} key={notification?._id} contact={notification.contact} priority={notification.priority} author={notification.user.username} time="12h23" description={notification?.message}/>
+                                )
+                            })}
+
+                        </div>
+                        
+
+                    </div>
+
+                </aside>}
+
+
                 {currentUser ? <>
                     <div className="user">
                         <img src={currentUser?.avatarUrl || "/images/noavatar.png"} className="avatar" alt=""  />

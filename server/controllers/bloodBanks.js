@@ -17,7 +17,7 @@ export const getBloodBanks = async function (req, res, next) {
         }
 
         const bloodBanks = await BloodBank.find()
-            .populate("hospital", "name address")
+            .populate("hospital", "name address avatarUrl")
 
         
         res.status(200).json({message: "Toutes les banques de sang", data: bloodBanks})

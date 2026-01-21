@@ -85,7 +85,7 @@ const BloodBanks = function () {
         <div className="bloodBanks">
             <div className="info">
                 <h1>Toutes les banques de sangs</h1>
-                <button>Ajouter une banque</button>
+                <button className="addButton">Ajouter une banque</button>
             </div>
 
             <DataTable path={path} columns={columns} rows={bloodBanks} />

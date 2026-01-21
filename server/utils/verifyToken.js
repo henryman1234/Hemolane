@@ -8,7 +8,7 @@ export const verifyToken = async function (req, res, next) {
     try {
         const token = req.cookies?.access_token
         if (!token) {
-            return next(createError(400, "Désolé, cet utilisateur n'existe pas!"))
+            return next(createError(400, "Désolé, vous ne pouvez pas effectuez cette requete"))
         }
 
         jwt.verify(token, process.env.JWT_SECRET_KEY, function(err, user){
@@ -16,6 +16,7 @@ export const verifyToken = async function (req, res, next) {
                return next(createError(404, "Token non valide!"))
             }
             req.user = user
+            console.log(req.user)
             return next()
         })
     } catch (err) {

@@ -1,0 +1,29 @@
+
+
+.notifications {
+    position: relative;
+
+    .ring {
+        cursor: pointer;
+        height: 25px;
+        width: 25px;
+    }
+
+    span  {
+        font-size: 12px;
+        font-weight: 500;
+        background-color: red;
+        justify-content: center;
+        position: absolute;
+        align-items: center;
+        display: flex;
+        color: white;
+        font-weight:  bold;
+        height: 10px;
+        width: 10px;
+        padding: 10px;
+        border-radius: 50%;
+        right: -10px;
+        top: -10px;
+    }
+}

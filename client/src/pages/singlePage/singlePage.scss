@@ -59,9 +59,12 @@
                                 gap: 15px;
         
                                 h1 {
-                                    font-size: 25px;
+                                    font-size: 20px;
                                     font-weight: 400;
-                                    font-family: Nexa;
+                                    font-family: Poppins, sans-serif;
+                                    font-weight: bold;
+                                    color: variables.$blue;
+                                    
                                 }
         
                                 .address {
@@ -96,7 +99,6 @@
                                 color: #fff;
                                 border-radius: 20px;
                                 font-weight: 600;
-                                font-family: Nexa;
                                 font-size: 16px;
                                 background-color: variables.$deep-green;
         
@@ -106,6 +108,15 @@
                                     cursor: pointer;
                                     width: 50px;
                                     height: 50px;
+                                }
+
+                                span {
+                                    font-weight: bold;
+                                    font-family: "Inter", sans-serif;
+                                    color:  #fff;
+                                    font-size: 16px;
+
+
                                 }
                             }
                         }

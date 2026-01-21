@@ -94,6 +94,10 @@ const Profile = function () {
 
     }, [])
 
+    const handleNavigate = function () {
+        navigate("/reservations")
+    }
+
     
 
 
@@ -114,7 +118,10 @@ const Profile = function () {
                             </div>
                             <h3 className="avatarName">{currentUser?.username}</h3>
                             <p className="avatarEmail">{currentUser?.email}</p>
-                            <button onClick={handleLogout} className="disconnect">Déconnexion</button>
+                            <div className="actionButtons">
+                                <button onClick={handleNavigate} className="reserve">Reserver</button>
+                                <button onClick={handleLogout} className="disconnect">Déconnexion</button>
+                            </div>
 
 
                         </div>

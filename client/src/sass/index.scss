@@ -1,6 +1,6 @@
-@import "./reset.scss";
-@import "./responsive.scss";
-@import "./variables.scss";
+@use "./reset.scss";
+@use "./responsive.scss";
+@use "./variables.scss";
 
 
 @font-face {
@@ -43,6 +43,13 @@
     font-family: "Quantify", sans-serif;
     font-display: swap;
     font-weight: 500;
+}
+
+@font-face {
+    font-family: Poppins, sans-serif;
+    font-weight: bold;
+    src: url("../../public/fonts/poppins.bold.ttf");
+    font-display: swap;
 }
 
 html {

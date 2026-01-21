@@ -11,7 +11,7 @@ declare global {
 
 interface CloudinaryUploadWidgetProps {
   uwConfig: any; // Adjust the type based on the actual type of uwConfig
-  setImage: React.Dispatch<React.SetStateAction<string>>;
+  setImage: React.Dispatch<React.SetStateAction<string | undefined>>;
 }
 
 // Create a context to manage the script loading state
